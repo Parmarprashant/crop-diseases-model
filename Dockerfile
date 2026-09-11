@@ -1,11 +1,11 @@
-# Production Cloud Model Deployment Container
+# Production Cloud Model Deployment Container (Compatible with Hugging Face Spaces, Render, AWS, GCP)
 FROM python:3.11-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    DEVICE=cuda \
-    PORT=8000
+    DEVICE=cpu \
+    PORT=7860
 
 # Install system dependencies for OpenCV and image processing
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -19,25 +19,36 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set working directory
 WORKDIR /app
 
+# Create a non-root user (UID 1000 required for Hugging Face Spaces security)
+RUN useradd -m -u 1000 user && \
+    mkdir -p /app && \
+    chown -R user:user /app
+
 # Install Python dependencies
-COPY requirements.txt .
+COPY --chown=user:user requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy local model code, weights, and inference pipeline
-COPY api/ api/
-COPY models/ models/
-COPY inference/ inference/
-COPY core/ core/
-COPY weights/ weights/
-COPY yolov8n.pt .
-COPY .env.example .env
+# Copy application files, weights, and configuration
+COPY --chown=user:user api/ api/
+COPY --chown=user:user models/ models/
+COPY --chown=user:user inference/ inference/
+COPY --chown=user:user core/ core/
+COPY --chown=user:user weights/ weights/
+COPY --chown=user:user yolov8n.pt .
+COPY --chown=user:user .env.example .env
 
-# Expose cloud inference port
-EXPOSE 8000
+# Switch to non-root user
+USER user
+ENV HOME=/home/user \
+    PATH=/home/user/.local/bin:$PATH
+
+# Expose cloud inference port (Hugging Face Spaces default 7860)
+EXPOSE 7860
 
 # Container Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost:8000/api/v1/health || exit 1
+    CMD curl -f http://localhost:${PORT:-7860}/api/v1/health || exit 1
 
-# Start high-performance ASGI Cloud Server
-CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+# Start high-performance ASGI Cloud Server with dynamic port resolution
+CMD ["sh", "-c", "uvicorn api.server:app --host 0.0.0.0 --port ${PORT:-7860} --workers 1"]
+

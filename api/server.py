@@ -43,12 +43,17 @@ elif os.path.exists(TRAIN_DIR):
         if os.path.isdir(os.path.join(TRAIN_DIR, d))
     ])
 
-# Setup configuration
 def get_safe_device() -> str:
     env_device = os.environ.get("DEVICE", "").lower()
-    if env_device in ["cpu", "cuda"]:
-        return env_device
-    return "cpu"
+    if env_device == "cuda":
+        if torch.cuda.is_available():
+            return "cuda"
+        print("[Server] Notice: DEVICE='cuda' requested but CUDA is not available. Falling back to 'cpu'.")
+        return "cpu"
+    if env_device == "cpu":
+        return "cpu"
+    return "cuda" if torch.cuda.is_available() else "cpu"
+
 
 CONFIDENCE_THRESHOLD = float(os.environ.get("CONFIDENCE_THRESHOLD", "0.70"))
 DEVICE = get_safe_device()
