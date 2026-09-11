@@ -1,0 +1,18 @@
+{
+  "version": "empirical_calibration_v2_sih",
+  "dataset": "MAIN DATA/Validation (42 classes)",
+  "sample_count": 166,
+  "input_resolution": "256x256",
+  "metrics": {
+    "auroc": 0.9802,
+    "aupr": 0.8197,
+    "fpr_at_95_tpr": 0.0542
+  },
+  "energy_in_dist_mean": -9.407920053206295,
+  "energy_in_dist_std": 2.4499393967317014,
+  "energy_threshold_fpr95": -5.327,
+  "entropy_in_dist_mean": 0.0950955688596721,
+  "entropy_threshold_fpr95": 0.466,
+  "min_msp_threshold": 0.486,
+  "calibration_timestamp": "2026-09-11T17:58:48Z"
+}

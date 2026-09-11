@@ -1,0 +1,15 @@
+.git
+.gitignore
+.vscode
+.env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+tests/
+training/
+calibration/
+MAIN DATA/
+detail.md
+README.md

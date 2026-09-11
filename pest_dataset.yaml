@@ -1,0 +1,19 @@
+path: D:\1winbackup\desktop\Ganpat University\Model\MAIN DATA\YoloPests
+train: images/train
+val: images/val
+nc: 14
+names:
+  0: 'American Bollworm on Cotton'
+  1: 'Army worm'
+  2: 'bollworm on Cotton'
+  3: 'Cotton Aphid'
+  4: 'cotton mealy bug'
+  5: 'cotton whitefly'
+  6: 'maize fall armyworm'
+  7: 'maize stem borer'
+  8: 'pink bollworm in cotton'
+  9: 'red cotton bug'
+  10: 'thirps on  cotton'
+  11: 'Wheat aphid'
+  12: 'Wheat mite'
+  13: 'Wheat Stem fly'
