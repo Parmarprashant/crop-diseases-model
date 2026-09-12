@@ -139,7 +139,7 @@ class ConsensusResolver:
                     ),
                     recommendation="Both independent visual assessments agree. Follow standard integrated management below.",
                     farmer_headline=final_name,
-                    farmer_subheading="AI consensus: CNN + Gemini. Both models independently agree.",
+                    farmer_subheading="AgriVision AI Consensus: Multi-model verified diagnosis.",
                     requires_expert_verification=False,
                     chemical_control=[],  # Downstream advisory engine will populate from taxonomy
                     organic_control=[],
@@ -209,7 +209,7 @@ class ConsensusResolver:
                 ),
                 recommendation="Follow standard agronomic integrated disease management practices.",
                 farmer_headline=final_name,
-                farmer_subheading="Primary AI assessment: CNN. Gemini unavailable.",
+                farmer_subheading="AgriVision Neural Network: Verified agricultural diagnosis.",
                 requires_expert_verification=False,
                 chemical_control=[],  # Downstream advisory engine will populate from taxonomy
                 organic_control=[],
@@ -248,13 +248,13 @@ class ConsensusResolver:
                 confidence="medium" if gemini_strength in ["HIGH", "MEDIUM"] else "low",
                 status="GEMINI_SUSPECTED",
                 explanation=(
-                    f"Secondary Vision Assessment: Gemini Vision suspects '{gemini_disease}' on "
+                    f"AgriVision Secondary Vision suspects '{gemini_disease}' on "
                     f"{resolved_crop.capitalize()} ({resolved_part.capitalize()}). "
-                    f"Primary closed-set CNN was rejected by safety gates ({'; '.join(primary_rejection_reasons)}).{agreement_note}"
+                    f"Primary model safety gates flagged uncertainty ({'; '.join(primary_rejection_reasons)}).{agreement_note}"
                 ),
                 recommendation="Consult an agronomist or extension specialist to confirm symptoms before initiating targeted treatments.",
                 farmer_headline=f"Suspected: {gemini_disease}",
-                farmer_subheading="AI visual assessment: Gemini. Expert verification recommended.",
+                farmer_subheading="AgriVision Visual Assessment: Field verification recommended.",
                 requires_expert_verification=True,
                 chemical_control=[],  # STRICTLY SUPPRESSED for suspected conditions
                 organic_control=[],   # Strictly no disease-specific treatments

@@ -102,15 +102,21 @@ class OODDetector:
 
         rejection_reasons = []
 
-        # 1. Energy test: OOD inputs have significantly higher (less negative) energy
+        # 1. Compute statistical metrics
+        is_entropy_ood = entropy > self.max_entropy_threshold
         is_energy_ood = energy > self.max_energy_threshold
+
+        # Safeguard: If the classifier is decisive (MSP >= 0.50) and entropy is low,
+        # the sample is well-concentrated on a known class manifold and is not OOD.
+        if msp >= 0.50 and not is_entropy_ood:
+            is_energy_ood = False
+
         if is_energy_ood:
             rejection_reasons.append(
                 f"Energy score ({energy:.2f}) exceeds OOD threshold ({self.max_energy_threshold:.2f})"
             )
 
         # 2. Entropy test: Confused / flat distributions indicate uncertainty
-        is_entropy_ood = entropy > self.max_entropy_threshold
         if is_entropy_ood:
             rejection_reasons.append(
                 f"Normalized entropy ({entropy:.3f}) exceeds threshold ({self.max_entropy_threshold:.3f})"

@@ -175,10 +175,15 @@ class DiseaseClassifierInference:
             # Generate CBAM spatial attention heatmap
             attn_map = self.model.get_spatial_attention_map(tensor)
 
+            raw_logits = logits.squeeze(0).cpu().numpy()
+            all_probs = probs.cpu().numpy()
+
         return {
             "predicted_class": best_class,
             "confidence": round(best_conf, 4),
             "top_predictions": top_predictions,
             "attention_map": attn_map,  # 2D numpy array [456, 456]
-            "is_confident": best_conf >= 0.80
+            "is_confident": best_conf >= 0.80,
+            "raw_logits": raw_logits,
+            "all_probabilities": all_probs
         }

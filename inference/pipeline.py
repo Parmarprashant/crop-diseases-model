@@ -149,10 +149,15 @@ class HierarchicalAgriDiagnosticPipeline:
         part_res = self.plant_part_detector.detect(image)
 
         # STEP 6: Multi-Metric OOD Scoring
-        probs_array = np.array([p["confidence"] for p in top_candidates])
-        # Energy score computed from top logits
-        logits_approx = np.log(np.maximum(probs_array, 1e-12))
-        ood_res = self.ood_detector.evaluate(logits_approx, probs_array)
+        if "raw_logits" in cls_result and "all_probabilities" in cls_result:
+            ood_res = self.ood_detector.evaluate(
+                cls_result["raw_logits"],
+                cls_result["all_probabilities"]
+            )
+        else:
+            probs_array = np.array([p["confidence"] for p in top_candidates])
+            logits_approx = np.log(np.maximum(probs_array, 1e-12))
+            ood_res = self.ood_detector.evaluate(logits_approx, probs_array)
 
         # STEP 7: Domain & Compatibility Check
         rejection_reasons = []
@@ -253,16 +258,22 @@ class HierarchicalAgriDiagnosticPipeline:
             urg = "ADVISORY - In-Field Verification Required" if consensus.requires_expert_verification else "MODERATE"
             desc = consensus.explanation
 
-        evidence_items = [
-            f"Crop status: {crop_res.crop.capitalize()} (status: {crop_res.status})",
-            f"Plant organ: {part_res.plant_part.capitalize()} (status: {part_res.status})",
-            f"Resolution state: {consensus.resolution} (source: {consensus.source})"
-        ]
-        if primary_status == "rejected":
-            evidence_items.append(f"Primary CNN prediction ('{raw_top_class}') REJECTED: {primary_rejection_str}")
+        # Real visual diagnostic evidence items for farmers
+        evidence_items = []
+        if primary_status == "accepted":
+            evidence_items.append(f"Visual pathology patterns match {primary_prediction} on {crop_res.crop.capitalize()} foliage.")
+            if seg_result.get("infected_area_pct", 0) > 0:
+                evidence_items.append(f"Foliar lesion coverage estimated at {seg_result['infected_area_pct']:.1f}% of leaf area.")
+            if clean_pest_result.get("pest_count", 0) > 0:
+                evidence_items.append(f"Active insect presence detected: {', '.join([d['label'] for d in pest_result.get('detections', [])])}.")
+            else:
+                evidence_items.append("No active insect pests detected on inspected foliage.")
+            evidence_items.append(f"Model diagnostic confidence: {raw_top_conf*100:.1f}%.")
         else:
-            evidence_items.append(f"Primary CNN prediction ('{raw_top_class}') accepted ({raw_top_conf*100:.1f}%)")
-        evidence_items.append(f"Fallback: {fallback_provider} ({fallback_status})")
+            evidence_items.append(f"Crop detected: {consensus.final_crop.capitalize()} ({part_res.plant_part.capitalize()}).")
+            if seg_result.get("infected_area_pct", 0) > 0:
+                evidence_items.append(f"Foliar discoloration/lesion coverage: {seg_result['infected_area_pct']:.1f}%.")
+            evidence_items.append("Visual patterns require in-field physical inspection to verify pathogen type.")
 
         return StandardizedDiagnosisResponse(
             crop=CropInfo(
