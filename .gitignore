@@ -62,3 +62,5 @@ training_runs/
 .coverage
 htmlcov/
 scratch/
+cloudflared.exe
+
