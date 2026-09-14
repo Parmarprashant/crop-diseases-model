@@ -1,42 +1,281 @@
-American Bollworm on Cotton
-Anthracnose on Cotton
-Army worm
-Becterial Blight in Rice
-Brownspot
-Common_Rust
-Cotton Aphid
-Flag Smut
-Gray_Leaf_Spot
-Healthy Maize
-Healthy Wheat
-Healthy cotton
-Leaf Curl
-Leaf smut
-Mosaic sugarcane
-RedRot sugarcane
-RedRust sugarcane
-Rice Blast
-Sugarcane Healthy
-Tungro
-Wheat Brown leaf Rust
-Wheat Stem fly
-Wheat aphid
-Wheat black rust
-Wheat leaf blight
-Wheat mite
-Wheat powdery mildew
-Wheat scab
-Wheat___Yellow_Rust
-Wilt
-Yellow Rust Sugarcane
-bacterial_blight in Cotton
-bollrot on Cotton
-bollworm on Cotton
-cotton mealy bug
-cotton whitefly
-maize ear rot
-maize fall armyworm
-maize stem borer
-pink bollworm in cotton
-red cotton bug
-thirps on  cotton
+Apple - Healthy
+Apple - Rust
+Apple - Scab
+Apple - apple black rot
+Apple - apple black rot 
+Apple - apple mosaic virus
+Apple - apple mosaic virus 
+Apple - apple rust
+Apple - apple rust 
+Apple - apple scab
+Apple - apple scab 
+Banana - Bract mosaic virus
+Banana - Cordana
+Banana - Healthy
+Banana - Insectpest
+Banana - Moko
+Banana - Panama
+Banana - Pestalotiopsis
+Banana - Sigatoka
+Banana - Yb sigatoka
+Banana - banana anthracnose Baidu 
+Banana - banana anthracnose Bing 
+Banana - banana anthracnose Google 
+Banana - banana black leaf streak Baidu 
+Banana - banana black leaf streak Bing 
+Banana - banana black leaf streak banana black sigatoka ()
+Banana - banana bunchy top Baidu 
+Banana - banana bunchy top Bing 
+Banana - banana bunchy top Google 
+Banana - banana cigar end rot Bing 
+Banana - banana cigar end rot Google 
+Banana - banana cordana leaf spot Bing 
+Banana - banana panama disease
+Banana - banana panama disease 
+Basil - basil downy mildew
+Bean - bean halo blight
+Bean - bean mosaic virus
+Bean - bean mosaic virus 
+Bean - bean rust
+Bean - bean rust 
+Bell Pepper - Bacterial Spot
+Bell Pepper - Healthy
+Bell pepper - bell pepper bacterial spot Bing 
+Bell pepper - bell pepper blossom end rot Bing 
+Bell pepper - bell pepper blossom end rot Google 
+Bell pepper - bell pepper frogeye leaf spot Bing 
+Bell pepper - bell pepper powdery mildew Bing 
+Blackgram - Anthracnose
+Blackgram - Healthy
+Blackgram - Leaf Crinkle
+Blackgram - Powdery Mildew
+Blackgram - Yellow Mosaic
+Blueberry - Healthy
+Blueberry - blueberry anthracnose Bing 
+Blueberry - blueberry botrytis blight Bing 
+Blueberry - blueberry mummy berry Bing 
+Blueberry - blueberry rust
+Blueberry - blueberry scorch Bing 
+Blueberry - blueberry scorch Google 
+Broccoli - broccoli alternaria leaf spot Bing 
+Broccoli - broccoli alternaria leaf spot Google 
+Broccoli - broccoli downy mildew
+Broccoli - broccoli downy mildew 
+Cabbage - cabbage alternaria leaf spot
+Cabbage - cabbage alternaria leaf spot 
+Cabbage - cabbage black rot Bing 
+Cabbage - cabbage black rot Google 
+Cabbage - cabbage downy mildew Bing 
+Carrot - carrot alternaria leaf blight Bing 
+Carrot - carrot cavity spot
+Carrot - carrot cercospora leaf blight Bing 
+Cauliflower - Bacterial  spot  rot
+Cauliflower - Blackrot
+Cauliflower - Downy mildew
+Cauliflower - Healthy
+Cauliflower - cauliflower alternaria leaf spot
+Cauliflower - cauliflower bacterial soft rot Bing 
+Celery - celery anthracnose
+Celery - celery early blight
+Celery - celery early blight 
+Cherry - Healthy
+Cherry - cherry leaf spot
+Cherry - cherry leaf spot 
+Cherry - cherry powdery mildew 
+Chilli - Anthracnose
+Chilli - Healthy
+Chilli - Leafcurl
+Chilli - Leafspot
+Chilli - Whitefly
+Chilli - Yellowish
+Citrus - citrus canker
+Citrus - citrus canker 
+Citrus - citrus greening disease
+Citrus - citrus greening disease 
+Coffee - coffee berry blotch Bing 
+Coffee - coffee berry blotch Google 
+Coffee - coffee leaf rust
+Coffee - coffee leaf rust 
+Corn - Gray Leaf Spot
+Corn - Leaf Blight
+Corn - Rust
+Corn - corn gray leaf spot
+Corn - corn gray leaf spot 
+Corn - corn northern leaf blight
+Corn - corn northern leaf blight 
+Corn - corn rust
+Corn - corn rust 
+Corn - corn smut
+Corn - corn smut 
+Cucumber - cucumber angular leaf spot
+Cucumber - cucumber angular leaf spot 
+Cucumber - cucumber bacterial wilt
+Cucumber - cucumber bacterial wilt 
+Cucumber - cucumber powdery mildew
+Cucumber - cucumber powdery mildew 
+Eggplant - eggplant cercospora leaf spot
+Eggplant - eggplant cercospora leaf spot 
+Eggplant - eggplant phomopsis fruit rot Bing 
+Eggplant - eggplant phomopsis fruit rot Google 
+Eggplant - eggplant phytophthora blight Bing 
+Garlic - garlic leaf blight
+Garlic - garlic leaf blight 
+Garlic - garlic rust
+Garlic - garlic rust 
+Ginger - ginger leaf spot 
+Ginger - ginger sheath blight
+Ginger - ginger sheath blight 
+Grape - Black Rot
+Grape - Healthy
+Grape - grape black rot
+Grape - grape black rot 
+Grape - grape downy mildew
+Grape - grape downy mildew 
+Grape - grape leaf spot
+Grape - grape leaf spot 
+Grapevine - grapevine leafroll disease
+Grapevine - grapevine leafroll disease 
+Groundnut - Early leaf spot
+Groundnut - Early rust
+Groundnut - Healthy
+Groundnut - Late leaf spot
+Groundnut - Nutrition deficiency
+Groundnut - Rust
+Lettuce - lettuce downy mildew
+Lettuce - lettuce downy mildew 
+Lettuce - lettuce mosaic virus
+Lettuce - lettuce mosaic virus 
+Maple - maple tar spot
+Paddy - Bacterial Leaf Blight
+Paddy - Bacterial Leaf Streak
+Paddy - Bacterial Panicle Blight
+Paddy - Blast
+Paddy - Brown Spot
+Paddy - Dead Heart
+Paddy - Downy Mildew
+Paddy - Healthy
+Paddy - Hispa
+Paddy - Tungro
+Peach - Healthy
+Peach - peach brown rot Bing 
+Peach - peach brown rot Google 
+Peach - peach leaf curl
+Peach - peach leaf curl 
+Peach - peach scab Bing 
+Plum - plum bacterial spot Bing 
+Plum - plum brown rot Bing 
+Plum - plum pocket disease
+Plum - plum pox virus Bing 
+Plum - plum rust Bing 
+Potato - Early Blight
+Potato - Healthy
+Potato - Late Blight
+Potato - potato early blight
+Potato - potato early blight 
+Potato - potato late blight
+Potato - potato late blight 
+Radish - Black leaf spot
+Radish - Downey mildew
+Radish - Flea beetle
+Radish - Healthy
+Radish - Mosaic
+Raspberry - Healthy
+Raspberry - raspberry fire blight Bing 
+Raspberry - raspberry gray mold Bing 
+Raspberry - raspberry leaf spot Bing 
+Raspberry - raspberry yellow rust Bing 
+Rice - rice blast
+Rice - rice blast 
+Rice - rice sheath blight
+Rice - rice sheath blight 
+Soybean - Healthy
+Soybean - soybean bacterial blight Bing 
+Soybean - soybean bacterial blight Google 
+Soybean - soybean brown spot Bing 
+Soybean - soybean downy mildew Baidu 
+Soybean - soybean downy mildew Bing 
+Soybean - soybean downy mildew Google 
+Soybean - soybean frog eye leaf spot Baidu 
+Soybean - soybean frog eye leaf spot Bing 
+Soybean - soybean frog eye leaf spot Google 
+Soybean - soybean mosaic Baidu 
+Soybean - soybean mosaic Bing 
+Soybean - soybean mosaic Google 
+Soybean - soybean rust Baidu 
+Soybean - soybean rust Bing 
+Squash - Powdery Mildew
+Squash - squash powdery mildew
+Squash - squash powdery mildew 
+Strawberry - Healthy
+Strawberry - strawberry anthracnose
+Strawberry - strawberry leaf scorch
+Sugarcane - Healthy
+Sugarcane - Mosaic
+Sugarcane - Red Rot
+Sugarcane - Rust
+Sugarcane - Yellow
+Tobacco - tobacco blue mold Bing 
+Tobacco - tobacco blue mold Google 
+Tobacco - tobacco brown spot Bing 
+Tobacco - tobacco frogeye leaf spot Google 
+Tobacco - tobacco mosaic virus 
+Tomato - Bacterial Spot
+Tomato - Early Blight
+Tomato - Healthy
+Tomato - Late Blight
+Tomato - Leaf Mold
+Tomato - Mosaic Virus
+Tomato - Septoria Leaf Spot
+Tomato - Spider Mites
+Tomato - Target Spot
+Tomato - Yellow Leaf Curl Virus
+Tomato - tomato bacterial leaf spot
+Tomato - tomato bacterial leaf spot 
+Tomato - tomato early blight
+Tomato - tomato early blight 
+Tomato - tomato late blight
+Tomato - tomato late blight 
+Tomato - tomato leaf mold
+Tomato - tomato leaf mold 
+Tomato - tomato mosaic virus
+Tomato - tomato mosaic virus 
+Tomato - tomato septoria leaf spot
+Tomato - tomato septoria leaf spot 
+Tomato - tomato yellow leaf curl virus
+Tomato - tomato yellow leaf curl virus 
+Wheat - wheat bacterial leaf streak (black chaff) Baidu 
+Wheat - wheat bacterial leaf streak (black chaff) Bing 
+Wheat - wheat bacterial leaf streak (black chaff) Google 
+Wheat - wheat bacterial leaf streak (black chaff) black chaff ()
+Wheat - wheat bacterial leaf streak (black chaff)black chaff ()
+Wheat - wheat head scab Baidu 
+Wheat - wheat head scab Bing 
+Wheat - wheat head scab Google 
+Wheat - wheat leaf rust Baidu 
+Wheat - wheat leaf rust Bing 
+Wheat - wheat leaf rust Google 
+Wheat - wheat loose smut Baidu 
+Wheat - wheat loose smut Bing 
+Wheat - wheat loose smut Google 
+Wheat - wheat powdery mildew Baidu 
+Wheat - wheat powdery mildew Bing 
+Wheat - wheat powdery mildew Google 
+Wheat - wheat septoria blotch Baidu 
+Wheat - wheat septoria blotch Bing 
+Wheat - wheat septoria blotch Google 
+Wheat - wheat septoria blotch blotch ()
+Wheat - wheat septoria blotchseptoria ()
+Wheat - wheat stem rust Baidu 
+Wheat - wheat stem rust Bing 
+Wheat - wheat stem rust Google 
+Wheat - wheat stripe rust Baidu 
+Wheat - wheat stripe rust Bing 
+Wheat - wheat stripe rust Google 
+Zucchini - zucchini bacterial wilt Bing 
+Zucchini - zucchini bacterial wilt Google 
+Zucchini - zucchini downy mildew Bing 
+Zucchini - zucchini downy mildew Google 
+Zucchini - zucchini powdery mildew Bing 
+Zucchini - zucchini powdery mildew Google 
+Zucchini - zucchini yellow mosaic virus
+Zucchini - zucchini yellow mosaic virus 

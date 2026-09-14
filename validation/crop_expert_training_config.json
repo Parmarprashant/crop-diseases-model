@@ -1,0 +1,15 @@
+{
+  "experiment": "Independent Crop Expert Training (ConvNeXt-Tiny)",
+  "timestamp": "2026-09-14 17:55:42",
+  "backbone": "convnext_tiny",
+  "num_classes": 41,
+  "epochs": 4,
+  "batch_size": 16,
+  "label_smoothing": 0.05,
+  "learning_rates": {
+    "head": 0.0001,
+    "backbone": 3e-05
+  },
+  "hard_negative_boost": 1.5,
+  "selection_metric": "Score_crop,dev = Acc_crop,dev - 2.0 * Rate_hard_negative_error,dev"
+}

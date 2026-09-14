@@ -1,0 +1,66 @@
+{
+  "phase": "Phase 1: Baseline Freeze",
+  "timestamp": "2026-09-14T13:25:00Z",
+  "checkpoint": {
+    "path": "weights/efficientnet_b5_cbam_best.pt",
+    "sha256": "b4db2209bfc416716d55339d0c21cb0c2d62ebe0eee089d6d00712dd198717b7",
+    "size_bytes": 121252187,
+    "mtime": "2026-09-13T21:39:17"
+  },
+  "git": {
+    "commit": "ea9c3218bc105e004d129c1908584b52b279abd4",
+    "uncommitted_files_count": 27,
+    "uncommitted_files": [
+      "M calibration/calibrate_thresholds.py",
+      " M inference/consensus_resolver.py",
+      " M inference/crop_detector.py",
+      " M inference/crop_taxonomy.py",
+      " M inference/diagnosis_schema.py",
+      " M inference/pipeline.py",
+      " M models/efficientnet_cbam.py",
+      " M start_cloud_api.bat",
+      " M training/dataset.py",
+      " M training/train_classifier.py",
+      " M weights/calibration_thresholds.json",
+      " M weights/class_names.txt",
+      " M weights/efficientnet_b5_cbam_best.pt",
+      " M weights/training_history.json",
+      "?? MODEL_WALKTHROUGH_FOR_CLAUDE.md",
+      "?? benchmark_canonical_accuracy.py",
+      "?? build_canonical_map.py",
+      "?? inference/leaf_focus.py",
+      "?? inspect_failures_deep_dive.py",
+      "?? training/train_finetune.py",
+      "?? validate_pipeline_real_world.py",
+      "?? weights/backup_42class/",
+      "?? weights/canonical_class_map.json",
+      "?? weights/canonical_reverse_map.json",
+      "?? weights/efficientnet_b5_cbam_stage2_best.pt",
+      "?? weights/failure_deep_dive_report.json",
+      "?? weights/validation_suite_report.json"
+    ]
+  },
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "pytorch": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "torchvision": "0.26.0+cu128",
+    "timm": "1.0.29"
+  },
+  "baseline_metrics_34_cases": {
+    "agricultural_samples": 32,
+    "crop_accuracy": 0.938,
+    "crop_correct": 30,
+    "full_diagnosis_pass_rate": 0.875,
+    "full_diagnosis_correct": 28,
+    "partial_pass_rate": 0.062,
+    "partial_count": 2,
+    "cross_crop_errors": 1,
+    "defensive_gates_passed": 2,
+    "defensive_gates_total": 2,
+    "defensive_gate_rate": 1.0,
+    "average_latency_ms": 422.9
+  }
+}

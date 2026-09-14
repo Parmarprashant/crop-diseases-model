@@ -1,0 +1,49 @@
+{
+  "candidate_architecture": "Calibrated Dedicated Crop Expert (ConvNeXt-Tiny) + Protected Model A (EfficientNet-B5+CBAM) + Crop-Aware Disease Resolver (Mode B: Balanced Recovery) + Scalar Confidence Calibrator",
+  "frozen_at": "2026-09-14T20:56:00+05:30",
+  "status": "FROZEN_ZERO_TUNING_LOCK",
+  "model_a_baseline": {
+    "architecture": "EfficientNet-B5 + CBAM Attention",
+    "checkpoint": "weights/efficientnet_b5_cbam_best.pt",
+    "expected_sha256": "b4db2209bfc416716d55339d0c21cb0c2d62ebe0eee089d6d00712dd198717b7",
+    "classes": 167,
+    "role": "PROTECTED_DISEASE_EXPERT"
+  },
+  "crop_expert": {
+    "architecture": "convnext_tiny",
+    "checkpoint": "weights/crop_expert_candidate.pt",
+    "expected_sha256": "6d3ebae2cf9b0bb20783b5cd62ea444cbfbe8a830008279eeba386037928b3c4",
+    "crops": 41,
+    "calibration_temperature": 0.9085,
+    "uncalibrated_ece": 0.0180,
+    "calibrated_ece": 0.0080,
+    "role": "DEDICATED_CROP_EXPERT"
+  },
+  "resolver": {
+    "mode": "mode_b",
+    "name": "Mode B: Balanced Recovery",
+    "tau_crop_conf": 0.45,
+    "tau_crop_margin": 0.08,
+    "tau_crop_entropy": 0.85,
+    "tau_compat_mass": 0.08,
+    "tau_within_crop_dom": 0.25,
+    "tau_single_compat": 0.05,
+    "tau_disease_conf": 0.35,
+    "role": "CROP_AWARE_DISEASE_RESOLVER"
+  },
+  "confidence_calibrator": {
+    "calibrator_type": "FinalConfidenceCalibrator",
+    "temperature": 1.0100,
+    "uncalibrated_ece": 0.1027,
+    "calibrated_ece": 0.1013,
+    "uncalibrated_brier": 0.1764,
+    "calibrated_brier": 0.1763,
+    "uncalibrated_nll": 0.6469,
+    "calibrated_nll": 0.6445,
+    "role": "POST_HOC_SCALAR_CONFIDENCE_CALIBRATION"
+  },
+  "tuning_lock": {
+    "locked_after_phase": "Tier 1 Calibration",
+    "zero_tuning_rule": "No modification of any threshold, temperature, or hyperparameter allowed across Tiers 2, 3, 4, or 5"
+  }
+}

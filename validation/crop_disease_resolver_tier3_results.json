@@ -1,0 +1,8 @@
+{
+  "defensive_stress_intercepted": 30,
+  "defensive_stress_total": 30,
+  "defensive_stress_rate": 100.0,
+  "historical_regressions": 0,
+  "regression_total": 34,
+  "tier3_pass": true
+}

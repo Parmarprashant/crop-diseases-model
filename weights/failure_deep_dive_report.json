@@ -1,0 +1,448 @@
+{
+  "img_00003854": {
+    "case": "Case 1: Apple Scab -> Peach Leaf Curl",
+    "true_crop": "apple",
+    "true_disease": "Apple - Scab",
+    "top_raw": [
+      {
+        "class": "Peach - peach leaf curl",
+        "prob": 0.3713313043117523,
+        "logit": 4.521003246307373
+      },
+      {
+        "class": "Apple - apple scab",
+        "prob": 0.053256113082170486,
+        "logit": 2.777060031890869
+      },
+      {
+        "class": "Tomato - Septoria Leaf Spot",
+        "prob": 0.04020896553993225,
+        "logit": 2.159010410308838
+      },
+      {
+        "class": "Strawberry - strawberry anthracnose",
+        "prob": 0.03203035891056061,
+        "logit": 2.679105043411255
+      },
+      {
+        "class": "Apple - apple black rot",
+        "prob": 0.024422938004136086,
+        "logit": 1.8154997825622559
+      }
+    ],
+    "top_canonical": [
+      {
+        "class_name": "Peach - Leaf Curl",
+        "confidence": 0.3804
+      },
+      {
+        "class_name": "Apple - Scab",
+        "confidence": 0.0822
+      },
+      {
+        "class_name": "Tomato - Septoria Leaf Spot",
+        "confidence": 0.045
+      },
+      {
+        "class_name": "Apple - Rust",
+        "confidence": 0.0366
+      },
+      {
+        "class_name": "Strawberry - Anthracnose",
+        "confidence": 0.032
+      }
+    ],
+    "crop_detector": {
+      "crop": "peach",
+      "status": "TENTATIVE",
+      "confidence": 0.38,
+      "margin": 0.298
+    },
+    "ood_metrics": {
+      "energy": -5.61,
+      "entropy": 0.589,
+      "msp": 0.371,
+      "is_ood": false,
+      "reasons": []
+    },
+    "pipeline_outcome": {
+      "crop": "peach",
+      "crop_status": "VERIFIED",
+      "diagnosis": "Leaf Curl",
+      "diagnosis_status": "CNN_ONLY",
+      "is_focused": false
+    }
+  },
+  "img_00038868": {
+    "case": "Case 2: Grape Downy Mildew -> Tomato Late Blight",
+    "true_crop": "grape",
+    "true_disease": "Grape - grape downy mildew",
+    "top_raw": [
+      {
+        "class": "Grape - grape downy mildew",
+        "prob": 0.11988368630409241,
+        "logit": 3.277508020401001
+      },
+      {
+        "class": "Grape - grape downy mildew",
+        "prob": 0.10840481519699097,
+        "logit": 2.8446249961853027
+      },
+      {
+        "class": "Tomato - Late Blight",
+        "prob": 0.09207572788000107,
+        "logit": 3.7476649284362793
+      },
+      {
+        "class": "Tomato - tomato late blight",
+        "prob": 0.0721118226647377,
+        "logit": 3.236233711242676
+      },
+      {
+        "class": "Tomato - tomato late blight",
+        "prob": 0.06531557440757751,
+        "logit": 3.0177061557769775
+      }
+    ],
+    "top_canonical": [
+      {
+        "class_name": "Tomato - Late Blight",
+        "confidence": 0.2295
+      },
+      {
+        "class_name": "Grape - Downy Mildew",
+        "confidence": 0.2283
+      },
+      {
+        "class_name": "Squash - Powdery Mildew",
+        "confidence": 0.0887
+      },
+      {
+        "class_name": "Cucumber - Powdery Mildew",
+        "confidence": 0.0515
+      },
+      {
+        "class_name": "Cherry - Powdery Mildew",
+        "confidence": 0.0507
+      }
+    ],
+    "crop_detector": {
+      "crop": "unknown",
+      "status": "UNKNOWN",
+      "confidence": 0.23,
+      "margin": 0.001
+    },
+    "ood_metrics": {
+      "energy": -5.7,
+      "entropy": 0.625,
+      "msp": 0.12,
+      "is_ood": true,
+      "reasons": [
+        "Normalized entropy (0.625) exceeds threshold (0.606)"
+      ]
+    },
+    "pipeline_outcome": {
+      "crop": "tomato",
+      "crop_status": "VERIFIED",
+      "diagnosis": "Late Blight",
+      "diagnosis_status": "CNN_ONLY",
+      "is_focused": true
+    }
+  },
+  "img_00040433": {
+    "case": "Case 3: Soybean Frog Eye Spot -> Blackgram Anthracnose",
+    "true_crop": "soybean",
+    "true_disease": "Soybean - soybean frog eye leaf spot Bing",
+    "top_raw": [
+      {
+        "class": "Blackgram - Anthracnose",
+        "prob": 0.4287969470024109,
+        "logit": 7.007926940917969
+      },
+      {
+        "class": "Soybean - soybean frog eye leaf spot Bing",
+        "prob": 0.34520041942596436,
+        "logit": 6.667580604553223
+      },
+      {
+        "class": "Soybean - soybean frog eye leaf spot Google",
+        "prob": 0.047910138964653015,
+        "logit": 4.7806878089904785
+      },
+      {
+        "class": "Soybean - soybean bacterial blight Bing",
+        "prob": 0.030591459944844246,
+        "logit": 4.060136795043945
+      },
+      {
+        "class": "Soybean - soybean rust Bing",
+        "prob": 0.029246071353554726,
+        "logit": 4.216473579406738
+      }
+    ],
+    "top_canonical": [
+      {
+        "class_name": "Blackgram - Anthracnose",
+        "confidence": 0.4288
+      },
+      {
+        "class_name": "Soybean - Frog Eye Leaf Spot",
+        "confidence": 0.3957
+      },
+      {
+        "class_name": "Soybean - Bacterial Blight",
+        "confidence": 0.0315
+      },
+      {
+        "class_name": "Soybean - Rust",
+        "confidence": 0.0312
+      },
+      {
+        "class_name": "Bean - Rust",
+        "confidence": 0.0164
+      }
+    ],
+    "crop_detector": {
+      "crop": "blackgram",
+      "status": "TENTATIVE",
+      "confidence": 0.429,
+      "margin": 0.033
+    },
+    "ood_metrics": {
+      "energy": -7.76,
+      "entropy": 0.309,
+      "msp": 0.429,
+      "is_ood": false,
+      "reasons": []
+    },
+    "pipeline_outcome": {
+      "crop": "blackgram",
+      "crop_status": "VERIFIED",
+      "diagnosis": "Anthracnose",
+      "diagnosis_status": "CNN_ONLY",
+      "is_focused": false
+    }
+  },
+  "img_00041701": {
+    "case": "Case 4: Wheat Bacterial Leaf Streak -> Powdery Mildew",
+    "true_crop": "wheat",
+    "true_disease": "Wheat - wheat bacterial leaf streak (black chaff) Baidu",
+    "top_raw": [
+      {
+        "class": "Corn - Leaf Blight",
+        "prob": 0.12630906701087952,
+        "logit": 4.639104843139648
+      },
+      {
+        "class": "Wheat - wheat powdery mildew Google",
+        "prob": 0.10569974780082703,
+        "logit": 4.0781025886535645
+      },
+      {
+        "class": "Wheat - wheat powdery mildew Bing",
+        "prob": 0.09851450473070145,
+        "logit": 4.404018402099609
+      },
+      {
+        "class": "Wheat - wheat powdery mildew Baidu",
+        "prob": 0.09163451939821243,
+        "logit": 4.153533935546875
+      },
+      {
+        "class": "Garlic - garlic leaf blight",
+        "prob": 0.07645442336797714,
+        "logit": 4.033015727996826
+      }
+    ],
+    "top_canonical": [
+      {
+        "class_name": "Wheat - Powdery Mildew",
+        "confidence": 0.2958
+      },
+      {
+        "class_name": "Corn - Northern Leaf Blight",
+        "confidence": 0.1756
+      },
+      {
+        "class_name": "Garlic - Leaf Blight",
+        "confidence": 0.0971
+      },
+      {
+        "class_name": "Corn - Gray Leaf Spot",
+        "confidence": 0.0935
+      },
+      {
+        "class_name": "Wheat - Stripe Rust",
+        "confidence": 0.069
+      }
+    ],
+    "crop_detector": {
+      "crop": "wheat",
+      "status": "TENTATIVE",
+      "confidence": 0.296,
+      "margin": 0.12
+    },
+    "ood_metrics": {
+      "energy": -6.51,
+      "entropy": 0.554,
+      "msp": 0.126,
+      "is_ood": false,
+      "reasons": []
+    },
+    "pipeline_outcome": {
+      "crop": "wheat",
+      "crop_status": "VERIFIED",
+      "diagnosis": "Powdery Mildew",
+      "diagnosis_status": "CNN_ONLY",
+      "is_focused": false
+    }
+  },
+  "img_00057650": {
+    "case": "Case 5: Chilli Leafcurl -> Leaf Curl",
+    "true_crop": "chilli",
+    "true_disease": "Chilli - Leafcurl",
+    "top_raw": [
+      {
+        "class": "Chilli - Leafcurl",
+        "prob": 0.36757004261016846,
+        "logit": 4.037492275238037
+      },
+      {
+        "class": "Chilli - Anthracnose",
+        "prob": 0.32440221309661865,
+        "logit": 4.592745780944824
+      },
+      {
+        "class": "Tomato - Yellow Leaf Curl Virus",
+        "prob": 0.05785465985536575,
+        "logit": 2.2786664962768555
+      },
+      {
+        "class": "Tomato - tomato yellow leaf curl virus",
+        "prob": 0.0376182422041893,
+        "logit": 1.8373732566833496
+      },
+      {
+        "class": "Chilli - Healthy",
+        "prob": 0.03244021162390709,
+        "logit": 1.8282530307769775
+      }
+    ],
+    "top_canonical": [
+      {
+        "class_name": "Chilli - Leaf Curl",
+        "confidence": 0.3676
+      },
+      {
+        "class_name": "Chilli - Anthracnose",
+        "confidence": 0.3244
+      },
+      {
+        "class_name": "Tomato - Yellow Leaf Curl Virus",
+        "confidence": 0.1195
+      },
+      {
+        "class_name": "Chilli - Healthy",
+        "confidence": 0.0324
+      },
+      {
+        "class_name": "Tomato - Mosaic Virus",
+        "confidence": 0.03
+      }
+    ],
+    "crop_detector": {
+      "crop": "chilli",
+      "status": "TENTATIVE",
+      "confidence": 0.368,
+      "margin": 0.248
+    },
+    "ood_metrics": {
+      "energy": -5.33,
+      "entropy": 0.378,
+      "msp": 0.368,
+      "is_ood": false,
+      "reasons": []
+    },
+    "pipeline_outcome": {
+      "crop": "chilli",
+      "crop_status": "VERIFIED",
+      "diagnosis": "Leaf Curl",
+      "diagnosis_status": "CNN_ONLY",
+      "is_focused": false
+    }
+  },
+  "img_00040900": {
+    "case": "Case 6: Strawberry Leaf Scorch -> Healthy",
+    "true_crop": "strawberry",
+    "true_disease": "Strawberry - strawberry leaf scorch",
+    "top_raw": [
+      {
+        "class": "Strawberry - Healthy",
+        "prob": 0.9644596576690674,
+        "logit": 8.87499713897705
+      },
+      {
+        "class": "Raspberry - Healthy",
+        "prob": 0.026112642139196396,
+        "logit": 5.576962947845459
+      },
+      {
+        "class": "Strawberry - strawberry leaf scorch",
+        "prob": 0.006087420973926783,
+        "logit": 4.29303503036499
+      },
+      {
+        "class": "Raspberry - raspberry leaf spot Bing",
+        "prob": 0.0005854178452864289,
+        "logit": 2.07907772064209
+      },
+      {
+        "class": "Grape - Healthy",
+        "prob": 0.000546598865184933,
+        "logit": 1.9254035949707031
+      }
+    ],
+    "top_canonical": [
+      {
+        "class_name": "Strawberry - Healthy",
+        "confidence": 0.9645
+      },
+      {
+        "class_name": "Raspberry - Healthy",
+        "confidence": 0.0261
+      },
+      {
+        "class_name": "Strawberry - Leaf Scorch",
+        "confidence": 0.0061
+      },
+      {
+        "class_name": "Raspberry - Leaf Spot",
+        "confidence": 0.0006
+      },
+      {
+        "class_name": "Grape - Healthy",
+        "confidence": 0.0005
+      }
+    ],
+    "crop_detector": {
+      "crop": "strawberry",
+      "status": "VERIFIED",
+      "confidence": 0.965,
+      "margin": 0.938
+    },
+    "ood_metrics": {
+      "energy": -8.93,
+      "entropy": 0.034,
+      "msp": 0.964,
+      "is_ood": false,
+      "reasons": []
+    },
+    "pipeline_outcome": {
+      "crop": "strawberry",
+      "crop_status": "VERIFIED",
+      "diagnosis": "Healthy",
+      "diagnosis_status": "CNN_ONLY",
+      "is_focused": false
+    }
+  }
+}

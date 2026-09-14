@@ -27,8 +27,15 @@ def pil_to_base64(img: Image.Image, format: str = "JPEG") -> str:
 def attention_map_to_base64(attn_map: np.ndarray, original_img: Image.Image) -> str:
     """Convert a 2D attention heatmap into an overlay on the original image."""
     w, h = original_img.size
+    if max(w, h) > 512:
+        scale = 512.0 / max(w, h)
+        w, h = max(int(w * scale), 1), max(int(h * scale), 1)
+        orig_small = original_img.resize((w, h), Image.Resampling.BILINEAR).convert("RGB")
+    else:
+        orig_small = original_img.convert("RGB")
+
     attn_resized = Image.fromarray((attn_map * 255).astype(np.uint8)).resize((w, h), Image.Resampling.BILINEAR)
-    norm_attn = np.array(attn_resized).astype(float) / 255.0
+    norm_attn = np.array(attn_resized, dtype=np.float32) / 255.0
     
     # Apply JET or Turbo colormap
     try:
@@ -39,7 +46,7 @@ def attention_map_to_base64(attn_map: np.ndarray, original_img: Image.Image) -> 
     heatmap_img = Image.fromarray((heatmap * 255).astype(np.uint8))
     
     # Blend with original
-    blended = Image.blend(original_img.convert("RGB"), heatmap_img, alpha=0.45)
+    blended = Image.blend(orig_small, heatmap_img, alpha=0.45)
     return pil_to_base64(blended)
 
 

@@ -1,0 +1,192 @@
+{
+  "confidence_intervals": {
+    "tier2": {
+      "model_a": {
+        "crop": [
+          67.92,
+          79.43
+        ],
+        "full_diag": [
+          58.02,
+          70.57
+        ],
+        "cross_crop": [
+          9.72,
+          18.8
+        ]
+      },
+      "candidate": {
+        "crop": [
+          92.41,
+          97.83
+        ],
+        "full_diag": [
+          61.76,
+          73.98
+        ],
+        "cross_crop": [
+          0.97,
+          5.21
+        ]
+      }
+    },
+    "tier4": {
+      "model_a": {
+        "crop": [
+          58.1,
+          73.1
+        ],
+        "full_diag": [
+          58.1,
+          73.1
+        ],
+        "cross_crop": [
+          14.96,
+          27.84
+        ]
+      },
+      "candidate": {
+        "crop": [
+          84.94,
+          94.36
+        ],
+        "full_diag": [
+          62.94,
+          77.36
+        ],
+        "cross_crop": [
+          3.66,
+          11.84
+        ]
+      }
+    },
+    "tier5_overall": {
+      "model_a": {
+        "crop": [
+          78.47,
+          85.91
+        ],
+        "full_diag": [
+          63.02,
+          72.14
+        ],
+        "cross_crop": [
+          7.86,
+          13.89
+        ]
+      },
+      "candidate": {
+        "crop": [
+          92.4,
+          96.74
+        ],
+        "full_diag": [
+          67.15,
+          75.94
+        ],
+        "cross_crop": [
+          1.02,
+          3.9
+        ]
+      }
+    },
+    "tier5_verified": {
+      "model_a": {
+        "crop": [
+          83.19,
+          91.45
+        ],
+        "full_diag": [
+          63.06,
+          74.67
+        ],
+        "cross_crop": [
+          6.13,
+          13.49
+        ]
+      },
+      "candidate": {
+        "crop": [
+          94.1,
+          98.58
+        ],
+        "full_diag": [
+          65.22,
+          76.61
+        ],
+        "cross_crop": [
+          0.65,
+          4.21
+        ]
+      }
+    }
+  },
+  "mcnemar_tests": {
+    "tier5_crop": {
+      "contingency_table": {
+        "both_correct": 327,
+        "model_a_only": 2,
+        "candidate_only": 53,
+        "both_incorrect": 18
+      },
+      "discordant_pairs": 55,
+      "statistic": 45.4545,
+      "p_value": 0.0,
+      "test_type": "continuity_corrected_chi2"
+    },
+    "tier5_full_diag": {
+      "contingency_table": {
+        "both_correct": 252,
+        "model_a_only": 2,
+        "candidate_only": 6,
+        "both_incorrect": 140
+      },
+      "discordant_pairs": 8,
+      "statistic": 1.125,
+      "p_value": 0.28906,
+      "test_type": "exact_binomial"
+    }
+  },
+  "holm_bonferroni": [
+    {
+      "original_p": 1.2e-11,
+      "adjusted_p": 0.0,
+      "is_significant": true
+    },
+    {
+      "original_p": 0.0001,
+      "adjusted_p": 0.0005,
+      "is_significant": true
+    },
+    {
+      "original_p": 0.0215,
+      "adjusted_p": 0.043,
+      "is_significant": true
+    },
+    {
+      "original_p": 3.8e-07,
+      "adjusted_p": 0.0,
+      "is_significant": true
+    },
+    {
+      "original_p": 0.0002,
+      "adjusted_p": 0.0008,
+      "is_significant": true
+    },
+    {
+      "original_p": 0.0156,
+      "adjusted_p": 0.0468,
+      "is_significant": true
+    },
+    {
+      "original_p": 0.0,
+      "adjusted_p": 0.0,
+      "is_significant": true
+    },
+    {
+      "original_p": 0.28906,
+      "adjusted_p": 0.28906,
+      "is_significant": false
+    }
+  ]
+}

@@ -106,48 +106,38 @@ def main():
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
 
-    detector = OODDetector()
+    from training.dataset import MainDataCropDataset
+    val_dataset = MainDataCropDataset(root_dir=os.path.join(BASE_DIR, "Data"), subset="Val", transform=val_transform, classes=class_names)
+    print(f"[In-Distribution] Sourced {len(val_dataset)} validation images across {len(class_names)} classes.")
 
-    val_dir = os.path.join(BASE_DIR, "MAIN DATA", "Validation")
+    detector = OODDetector()
     in_energies = []
     in_entropies = []
     in_msps = []
 
-    print("[In-Distribution] Sampling validation images across 42 classes...")
-    samples_per_class = 4
+    samples_to_take = min(500, len(val_dataset))
+    print(f"[In-Distribution] Computing metrics on {samples_to_take} validation samples...")
+    indices = np.linspace(0, len(val_dataset) - 1, samples_to_take, dtype=int)
     total_sampled = 0
 
     with torch.no_grad():
-        for c in class_names:
-            c_dir = os.path.join(val_dir, c)
-            if not os.path.exists(c_dir):
-                # Try case-insensitive matching
-                if os.path.exists(val_dir):
-                    for actual in os.listdir(val_dir):
-                        if actual.lower().replace("_", " ") == c.lower().replace("_", " "):
-                            c_dir = os.path.join(val_dir, actual)
-                            break
-            if not os.path.exists(c_dir):
+        for idx in indices:
+            try:
+                img_tensor, _ = val_dataset[idx]
+                tensor = img_tensor.unsqueeze(0).to(device)
+                logits = model(tensor).squeeze(0).cpu().numpy()
+                probs = F.softmax(torch.from_numpy(logits), dim=0).numpy()
+
+                energy = detector.compute_energy(logits)
+                entropy = detector.compute_normalized_entropy(probs)
+                msp = float(np.max(probs))
+
+                in_energies.append(energy)
+                in_entropies.append(entropy)
+                in_msps.append(msp)
+                total_sampled += 1
+            except Exception:
                 continue
-
-            fnames = [f for f in os.listdir(c_dir) if f.lower().endswith(('.jpg', '.jpeg', '.png'))][:samples_per_class]
-            for fname in fnames:
-                try:
-                    img = Image.open(os.path.join(c_dir, fname)).convert("RGB")
-                    tensor = val_transform(img).unsqueeze(0).to(device)
-                    logits = model(tensor).squeeze(0).cpu().numpy()
-                    probs = F.softmax(torch.from_numpy(logits), dim=0).numpy()
-
-                    energy = detector.compute_energy(logits)
-                    entropy = detector.compute_normalized_entropy(probs)
-                    msp = float(np.max(probs))
-
-                    in_energies.append(energy)
-                    in_entropies.append(entropy)
-                    in_msps.append(msp)
-                    total_sampled += 1
-                except Exception:
-                    continue
 
     print(f" -> Processed {total_sampled} in-distribution validation samples.")
     in_energies = np.array(in_energies)

@@ -1,0 +1,1201 @@
+{
+  "cohort_summary": {
+    "total_samples": 250,
+    "agricultural_samples": 220,
+    "defensive_samples": 30,
+    "crops_evaluated": 17
+  },
+  "primary_metrics": {
+    "top1_crop_accuracy": {
+      "correct": 163,
+      "total": 220,
+      "percentage": 74.09,
+      "ci_95": [
+        67.92,
+        79.43
+      ]
+    },
+    "full_diagnosis_pass_rate": {
+      "correct": 142,
+      "total": 220,
+      "percentage": 64.55,
+      "ci_95": [
+        58.02,
+        70.57
+      ]
+    },
+    "conditional_diagnosis_accuracy": {
+      "correct": 142,
+      "given_crop_correct": 163,
+      "percentage": 87.12,
+      "ci_95": [
+        81.11,
+        91.42
+      ]
+    },
+    "partial_crop_pass_rate": {
+      "count": 21,
+      "total": 220,
+      "percentage": 9.55,
+      "ci_95": [
+        6.33,
+        14.15
+      ]
+    },
+    "cross_crop_error_rate": {
+      "count": 30,
+      "total": 220,
+      "percentage": 13.64,
+      "ci_95": [
+        9.72,
+        18.8
+      ]
+    },
+    "refusal_rate": {
+      "count": 27,
+      "total": 220,
+      "percentage": 12.27,
+      "ci_95": [
+        8.57,
+        17.27
+      ]
+    },
+    "macro_average_crop_accuracy": 74.29,
+    "macro_average_diagnosis_accuracy": 64.52
+  },
+  "per_crop_performance": {
+    "apple": {
+      "total": 12,
+      "crop_accuracy": 33.3,
+      "full_diag_rate": 33.3,
+      "partial_rate": 0.0,
+      "cross_crop_errors": 5,
+      "refusals": 3
+    },
+    "banana": {
+      "total": 14,
+      "crop_accuracy": 78.6,
+      "full_diag_rate": 42.9,
+      "partial_rate": 35.7,
+      "cross_crop_errors": 2,
+      "refusals": 1
+    },
+    "bell pepper": {
+      "total": 15,
+      "crop_accuracy": 80.0,
+      "full_diag_rate": 60.0,
+      "partial_rate": 20.0,
+      "cross_crop_errors": 2,
+      "refusals": 1
+    },
+    "blackgram": {
+      "total": 12,
+      "crop_accuracy": 100.0,
+      "full_diag_rate": 100.0,
+      "partial_rate": 0.0,
+      "cross_crop_errors": 0,
+      "refusals": 0
+    },
+    "chilli": {
+      "total": 12,
+      "crop_accuracy": 50.0,
+      "full_diag_rate": 41.7,
+      "partial_rate": 8.3,
+      "cross_crop_errors": 3,
+      "refusals": 3
+    },
+    "citrus": {
+      "total": 10,
+      "crop_accuracy": 80.0,
+      "full_diag_rate": 80.0,
+      "partial_rate": 0.0,
+      "cross_crop_errors": 1,
+      "refusals": 1
+    },
+    "corn": {
+      "total": 12,
+      "crop_accuracy": 91.7,
+      "full_diag_rate": 91.7,
+      "partial_rate": 0.0,
+      "cross_crop_errors": 1,
+      "refusals": 0
+    },
+    "grape": {
+      "total": 12,
+      "crop_accuracy": 75.0,
+      "full_diag_rate": 58.3,
+      "partial_rate": 16.7,
+      "cross_crop_errors": 2,
+      "refusals": 1
+    },
+    "groundnut": {
+      "total": 14,
+      "crop_accuracy": 92.9,
+      "full_diag_rate": 92.9,
+      "partial_rate": 0.0,
+      "cross_crop_errors": 0,
+      "refusals": 1
+    },
+    "paddy": {
+      "total": 15,
+      "crop_accuracy": 100.0,
+      "full_diag_rate": 80.0,
+      "partial_rate": 20.0,
+      "cross_crop_errors": 0,
+      "refusals": 0
+    },
+    "peach": {
+      "total": 14,
+      "crop_accuracy": 57.1,
+      "full_diag_rate": 50.0,
+      "partial_rate": 7.1,
+      "cross_crop_errors": 3,
+      "refusals": 3
+    },
+    "potato": {
+      "total": 17,
+      "crop_accuracy": 64.7,
+      "full_diag_rate": 64.7,
+      "partial_rate": 0.0,
+      "cross_crop_errors": 2,
+      "refusals": 4
+    },
+    "soybean": {
+      "total": 12,
+      "crop_accuracy": 66.7,
+      "full_diag_rate": 66.7,
+      "partial_rate": 0.0,
+      "cross_crop_errors": 2,
+      "refusals": 2
+    },
+    "strawberry": {
+      "total": 12,
+      "crop_accuracy": 83.3,
+      "full_diag_rate": 75.0,
+      "partial_rate": 8.3,
+      "cross_crop_errors": 1,
+      "refusals": 1
+    },
+    "sugarcane": {
+      "total": 4,
+      "crop_accuracy": 75.0,
+      "full_diag_rate": 50.0,
+      "partial_rate": 25.0,
+      "cross_crop_errors": 1,
+      "refusals": 0
+    },
+    "tomato": {
+      "total": 19,
+      "crop_accuracy": 63.2,
+      "full_diag_rate": 52.6,
+      "partial_rate": 10.5,
+      "cross_crop_errors": 2,
+      "refusals": 5
+    },
+    "wheat": {
+      "total": 14,
+      "crop_accuracy": 71.4,
+      "full_diag_rate": 57.1,
+      "partial_rate": 14.3,
+      "cross_crop_errors": 3,
+      "refusals": 1
+    }
+  },
+  "confusion_matrix": {
+    "apple": {
+      "unknown": 3,
+      "banana": 2,
+      "tomato": 2,
+      "apple": 4,
+      "citrus": 1
+    },
+    "peach": {
+      "peach": 8,
+      "citrus": 1,
+      "unknown": 3,
+      "plum": 1,
+      "apple": 1
+    },
+    "soybean": {
+      "soybean": 8,
+      "tomato": 1,
+      "unknown": 2,
+      "blackgram": 1
+    },
+    "blackgram": {
+      "blackgram": 12
+    },
+    "grape": {
+      "unknown": 1,
+      "squash": 2,
+      "grape": 9
+    },
+    "tomato": {
+      "tomato": 12,
+      "unknown": 5,
+      "soybean": 1,
+      "bell pepper": 1
+    },
+    "wheat": {
+      "corn": 2,
+      "wheat": 10,
+      "unknown": 1,
+      "paddy": 1
+    },
+    "corn": {
+      "corn": 11,
+      "wheat": 1
+    },
+    "potato": {
+      "unknown": 4,
+      "potato": 11,
+      "tomato": 1,
+      "cherry": 1
+    },
+    "chilli": {
+      "unknown": 3,
+      "squash": 1,
+      "chilli": 6,
+      "tomato": 1,
+      "eggplant": 1
+    },
+    "bell pepper": {
+      "bell pepper": 12,
+      "chilli": 1,
+      "unknown": 1,
+      "citrus": 1
+    },
+    "banana": {
+      "banana": 11,
+      "corn": 1,
+      "peach": 1,
+      "unknown": 1
+    },
+    "groundnut": {
+      "groundnut": 13,
+      "unknown": 1
+    },
+    "citrus": {
+      "citrus": 8,
+      "unknown": 1,
+      "peach": 1
+    },
+    "paddy": {
+      "paddy": 15
+    },
+    "sugarcane": {
+      "sugarcane": 3,
+      "wheat": 1
+    },
+    "strawberry": {
+      "strawberry": 10,
+      "raspberry": 1,
+      "unknown": 1
+    }
+  },
+  "calibration": {
+    "expected_calibration_error": 0.0819,
+    "mean_confidence_correct": 0.733,
+    "mean_confidence_incorrect": 0.357,
+    "high_confidence_errors_count": 2,
+    "high_confidence_errors": [
+      {
+        "image_id": "img_00035316",
+        "crop_true": "banana",
+        "crop_pred": "banana",
+        "disease_true": "Banana - banana black leaf streak Baidu ",
+        "diag_pred": "Yellow Sigatoka",
+        "confidence": 0.9803,
+        "source": "plantseg",
+        "verdict": "PARTIAL"
+      },
+      {
+        "image_id": "img_00009135",
+        "crop_true": "paddy",
+        "crop_pred": "paddy",
+        "disease_true": "Paddy - Hispa",
+        "diag_pred": "Healthy",
+        "confidence": 0.924,
+        "source": "paddy-disease-classification/train_images",
+        "verdict": "PARTIAL"
+      }
+    ],
+    "low_confidence_correct_count": 12,
+    "reliability_diagram": [
+      {
+        "bin": "[0.0, 0.1)",
+        "samples": 6,
+        "accuracy": 0.0,
+        "confidence": 3.2,
+        "gap": 3.2
+      },
+      {
+        "bin": "[0.1, 0.2)",
+        "samples": 8,
+        "accuracy": 0.0,
+        "confidence": 15.1,
+        "gap": 15.1
+      },
+      {
+        "bin": "[0.2, 0.3)",
+        "samples": 25,
+        "accuracy": 16.0,
+        "confidence": 26.3,
+        "gap": 10.3
+      },
+      {
+        "bin": "[0.3, 0.4)",
+        "samples": 21,
+        "accuracy": 38.1,
+        "confidence": 33.1,
+        "gap": 5.0
+      },
+      {
+        "bin": "[0.4, 0.5)",
+        "samples": 28,
+        "accuracy": 53.6,
+        "confidence": 44.3,
+        "gap": 9.3
+      },
+      {
+        "bin": "[0.5, 0.6)",
+        "samples": 23,
+        "accuracy": 65.2,
+        "confidence": 55.2,
+        "gap": 10.1
+      },
+      {
+        "bin": "[0.6, 0.7)",
+        "samples": 24,
+        "accuracy": 83.3,
+        "confidence": 64.3,
+        "gap": 19.1
+      },
+      {
+        "bin": "[0.7, 0.8)",
+        "samples": 13,
+        "accuracy": 84.6,
+        "confidence": 75.1,
+        "gap": 9.5
+      },
+      {
+        "bin": "[0.8, 0.9)",
+        "samples": 20,
+        "accuracy": 95.0,
+        "confidence": 84.5,
+        "gap": 10.5
+      },
+      {
+        "bin": "[0.9, 1.0)",
+        "samples": 52,
+        "accuracy": 96.2,
+        "confidence": 95.8,
+        "gap": 0.3
+      }
+    ]
+  },
+  "defensive_system": {
+    "total_stress_samples": 30,
+    "correct_rejections": 30,
+    "rejection_rate": 100.0,
+    "ci_95": [
+      88.65,
+      100.0
+    ],
+    "stress_type_breakdown": {
+      "non_leaf_scene": {
+        "total": 6,
+        "defended": 6,
+        "pass_rate": 100.0
+      },
+      "random_noise": {
+        "total": 6,
+        "defended": 6,
+        "pass_rate": 100.0
+      },
+      "severe_blur": {
+        "total": 6,
+        "defended": 6,
+        "pass_rate": 100.0
+      },
+      "severe_darkness": {
+        "total": 6,
+        "defended": 6,
+        "pass_rate": 100.0
+      },
+      "synthetic_texture_ood": {
+        "total": 6,
+        "defended": 6,
+        "pass_rate": 100.0
+      }
+    }
+  },
+  "latency_profile": {
+    "all_mean_ms": 452.6,
+    "all_median_ms": 313.9,
+    "all_p95_ms": 965.3,
+    "all_min_ms": 6.4,
+    "all_max_ms": 4433.1,
+    "agri_mean_ms": 488.4,
+    "def_mean_ms": 189.8
+  },
+  "failure_taxonomy": {
+    "6. OOD/gating issue (Excessive rejection of in-distribution leaf)": 24,
+    "8. Cross-crop visual confusion": 22,
+    "10. Healthy-vs-disease representation failure": 12,
+    "9. Intra-crop disease confusion": 16,
+    "3. Crop detector ambiguity / statistical refusal": 2,
+    "8. Cross-crop visual confusion (Rosaceae leaf morphology)": 1,
+    "8. Cross-crop visual confusion (Legume foliar overlap)": 1
+  },
+  "failure_details": {
+    "6. OOD/gating issue (Excessive rejection of in-distribution leaf)": [
+      {
+        "image_id": "img_00035224",
+        "crop_true": "apple",
+        "crop_pred": "unknown",
+        "disease_true": "Apple - apple scab",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.0613,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00034868",
+        "crop_true": "apple",
+        "crop_pred": "unknown",
+        "disease_true": "Apple - apple mosaic virus ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2007,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00001989",
+        "crop_true": "apple",
+        "crop_pred": "unknown",
+        "disease_true": "Apple - Rust",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1418,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00039297",
+        "crop_true": "peach",
+        "crop_pred": "unknown",
+        "disease_true": "Peach - peach brown rot Bing ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.4079,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00044365",
+        "crop_true": "peach",
+        "crop_pred": "unknown",
+        "disease_true": "Peach - peach brown rot Bing ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2226,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00040423",
+        "crop_true": "soybean",
+        "crop_pred": "unknown",
+        "disease_true": "Soybean - soybean frog eye leaf spot Bing ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.3066,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00040335",
+        "crop_true": "soybean",
+        "crop_pred": "unknown",
+        "disease_true": "Soybean - soybean downy mildew Bing ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.3025,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00038840",
+        "crop_true": "grape",
+        "crop_pred": "unknown",
+        "disease_true": "Grape - grape downy mildew",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1554,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00041326",
+        "crop_true": "tomato",
+        "crop_pred": "unknown",
+        "disease_true": "Tomato - tomato late blight ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1577,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00041595",
+        "crop_true": "tomato",
+        "crop_pred": "unknown",
+        "disease_true": "Tomato - tomato septoria leaf spot",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.3271,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00041623",
+        "crop_true": "tomato",
+        "crop_pred": "unknown",
+        "disease_true": "Tomato - tomato septoria leaf spot",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1602,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00001474",
+        "crop_true": "tomato",
+        "crop_pred": "unknown",
+        "disease_true": "Tomato - Mosaic Virus",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2827,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00041370",
+        "crop_true": "tomato",
+        "crop_pred": "unknown",
+        "disease_true": "Tomato - tomato late blight",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.0698,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00042766",
+        "crop_true": "wheat",
+        "crop_pred": "unknown",
+        "disease_true": "Wheat - wheat stripe rust Baidu ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1744,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00002587",
+        "crop_true": "potato",
+        "crop_pred": "unknown",
+        "disease_true": "Potato - Early Blight",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1351,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00039780",
+        "crop_true": "potato",
+        "crop_pred": "unknown",
+        "disease_true": "Potato - potato early blight ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2356,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00039793",
+        "crop_true": "potato",
+        "crop_pred": "unknown",
+        "disease_true": "Potato - potato early blight",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1154,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00039898",
+        "crop_true": "potato",
+        "crop_pred": "unknown",
+        "disease_true": "Potato - potato late blight",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2796,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00057020",
+        "crop_true": "chilli",
+        "crop_pred": "unknown",
+        "disease_true": "Chilli - Whitefly",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2787,
+        "source": "Multicrop/train"
+      },
+      {
+        "image_id": "img_00049874",
+        "crop_true": "chilli",
+        "crop_pred": "unknown",
+        "disease_true": "Chilli - Whitefly",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2664,
+        "source": "Multicrop/train"
+      },
+      {
+        "image_id": "img_00059475",
+        "crop_true": "chilli",
+        "crop_pred": "unknown",
+        "disease_true": "Chilli - Leafspot",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.0619,
+        "source": "Multicrop/train"
+      },
+      {
+        "image_id": "img_00003474",
+        "crop_true": "bell pepper",
+        "crop_pred": "unknown",
+        "disease_true": "Bell Pepper - Bacterial Spot",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.1642,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00036983",
+        "crop_true": "citrus",
+        "crop_pred": "unknown",
+        "disease_true": "Citrus - citrus canker ",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.207,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00040872",
+        "crop_true": "strawberry",
+        "crop_pred": "unknown",
+        "disease_true": "Strawberry - strawberry anthracnose",
+        "diag_pred": "Unable to determine the disease reliably",
+        "confidence": 0.2176,
+        "source": "plantseg"
+      }
+    ],
+    "8. Cross-crop visual confusion": [
+      {
+        "image_id": "img_00034896",
+        "crop_true": "apple",
+        "crop_pred": "banana",
+        "disease_true": "Apple - apple mosaic virus",
+        "diag_pred": "Yellow Sigatoka",
+        "confidence": 0.5616,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00043377",
+        "crop_true": "apple",
+        "crop_pred": "tomato",
+        "disease_true": "Apple - apple scab",
+        "diag_pred": "Late Blight",
+        "confidence": 0.2542,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00034913",
+        "crop_true": "apple",
+        "crop_pred": "tomato",
+        "disease_true": "Apple - apple mosaic virus",
+        "diag_pred": "Late Blight",
+        "confidence": 0.3001,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035092",
+        "crop_true": "apple",
+        "crop_pred": "citrus",
+        "disease_true": "Apple - apple scab ",
+        "diag_pred": "Greening Disease",
+        "confidence": 0.541,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00039303",
+        "crop_true": "peach",
+        "crop_pred": "citrus",
+        "disease_true": "Peach - peach brown rot Bing ",
+        "diag_pred": "Greening Disease",
+        "confidence": 0.501,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00039310",
+        "crop_true": "peach",
+        "crop_pred": "plum",
+        "disease_true": "Peach - peach brown rot Bing ",
+        "diag_pred": "Brown Rot",
+        "confidence": 0.4285,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00040587",
+        "crop_true": "soybean",
+        "crop_pred": "tomato",
+        "disease_true": "Soybean - soybean mosaic Bing ",
+        "diag_pred": "Yellow Leaf Curl Virus",
+        "confidence": 0.5517,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00038820",
+        "crop_true": "grape",
+        "crop_pred": "squash",
+        "disease_true": "Grape - grape downy mildew ",
+        "diag_pred": "Powdery Mildew",
+        "confidence": 0.2619,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00038847",
+        "crop_true": "grape",
+        "crop_pred": "squash",
+        "disease_true": "Grape - grape downy mildew",
+        "diag_pred": "Powdery Mildew",
+        "confidence": 0.3514,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00002780",
+        "crop_true": "tomato",
+        "crop_pred": "soybean",
+        "disease_true": "Tomato - Septoria Leaf Spot",
+        "diag_pred": "Frog Eye Leaf Spot",
+        "confidence": 0.6623,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00042556",
+        "crop_true": "wheat",
+        "crop_pred": "corn",
+        "disease_true": "Wheat - wheat septoria blotch blotch ()",
+        "diag_pred": "Rust",
+        "confidence": 0.6277,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00042574",
+        "crop_true": "wheat",
+        "crop_pred": "corn",
+        "disease_true": "Wheat - wheat septoria blotch blotch ()",
+        "diag_pred": "Rust",
+        "confidence": 0.2636,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00042559",
+        "crop_true": "wheat",
+        "crop_pred": "paddy",
+        "disease_true": "Wheat - wheat septoria blotch blotch ()",
+        "diag_pred": "Blast",
+        "confidence": 0.4376,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00037479",
+        "crop_true": "corn",
+        "crop_pred": "wheat",
+        "disease_true": "Corn - corn gray leaf spot",
+        "diag_pred": "Powdery Mildew",
+        "confidence": 0.2845,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00039839",
+        "crop_true": "potato",
+        "crop_pred": "tomato",
+        "disease_true": "Potato - potato early blight",
+        "diag_pred": "Early Blight",
+        "confidence": 0.7814,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00046977",
+        "crop_true": "chilli",
+        "crop_pred": "squash",
+        "disease_true": "Chilli - Whitefly",
+        "diag_pred": "Powdery Mildew",
+        "confidence": 0.3432,
+        "source": "Multicrop/train"
+      },
+      {
+        "image_id": "img_00053425",
+        "crop_true": "chilli",
+        "crop_pred": "tomato",
+        "disease_true": "Chilli - Whitefly",
+        "diag_pred": "Yellow Leaf Curl Virus",
+        "confidence": 0.2778,
+        "source": "Multicrop/train"
+      },
+      {
+        "image_id": "img_00059114",
+        "crop_true": "chilli",
+        "crop_pred": "eggplant",
+        "disease_true": "Chilli - Leafspot",
+        "diag_pred": "Phytophthora Blight",
+        "confidence": 0.3281,
+        "source": "Multicrop/train"
+      },
+      {
+        "image_id": "img_00036030",
+        "crop_true": "bell pepper",
+        "crop_pred": "citrus",
+        "disease_true": "Bell pepper - bell pepper frogeye leaf spot Bing ",
+        "diag_pred": "Canker",
+        "confidence": 0.5029,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035357",
+        "crop_true": "banana",
+        "crop_pred": "corn",
+        "disease_true": "Banana - banana black leaf streak Bing ",
+        "diag_pred": "Rust",
+        "confidence": 0.3482,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00001346",
+        "crop_true": "sugarcane",
+        "crop_pred": "wheat",
+        "disease_true": "Sugarcane - Rust",
+        "diag_pred": "Leaf Rust",
+        "confidence": 0.2718,
+        "source": "Sugarcane Leaf Disease Dataset"
+      },
+      {
+        "image_id": "img_00003047",
+        "crop_true": "strawberry",
+        "crop_pred": "raspberry",
+        "disease_true": "Strawberry - Healthy",
+        "diag_pred": "Healthy",
+        "confidence": 0.3081,
+        "source": "PlantDoc-Dataset/train"
+      }
+    ],
+    "10. Healthy-vs-disease representation failure": [
+      {
+        "image_id": "img_00034939",
+        "crop_true": "apple",
+        "crop_pred": "banana",
+        "disease_true": "Apple - apple rust ",
+        "diag_pred": "Healthy",
+        "confidence": 0.5146,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00044890",
+        "crop_true": "tomato",
+        "crop_pred": "tomato",
+        "disease_true": "Tomato - tomato yellow leaf curl virus",
+        "diag_pred": "Healthy",
+        "confidence": 0.429,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00003627",
+        "crop_true": "tomato",
+        "crop_pred": "bell pepper",
+        "disease_true": "Tomato - Leaf Mold",
+        "diag_pred": "Healthy",
+        "confidence": 0.3046,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00003945",
+        "crop_true": "potato",
+        "crop_pred": "cherry",
+        "disease_true": "Potato - Late Blight",
+        "diag_pred": "Healthy",
+        "confidence": 0.4063,
+        "source": "PlantDoc-Dataset/test"
+      },
+      {
+        "image_id": "img_00003477",
+        "crop_true": "bell pepper",
+        "crop_pred": "bell pepper",
+        "disease_true": "Bell Pepper - Bacterial Spot",
+        "diag_pred": "Healthy",
+        "confidence": 0.6636,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00043576",
+        "crop_true": "bell pepper",
+        "crop_pred": "chilli",
+        "disease_true": "Bell pepper - bell pepper powdery mildew Bing ",
+        "diag_pred": "Healthy",
+        "confidence": 0.5394,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035925",
+        "crop_true": "bell pepper",
+        "crop_pred": "bell pepper",
+        "disease_true": "Bell pepper - bell pepper bacterial spot Bing ",
+        "diag_pred": "Healthy",
+        "confidence": 0.3107,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00043442",
+        "crop_true": "banana",
+        "crop_pred": "peach",
+        "disease_true": "Banana - banana bunchy top Bing ",
+        "diag_pred": "Healthy",
+        "confidence": 0.4914,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00043836",
+        "crop_true": "citrus",
+        "crop_pred": "peach",
+        "disease_true": "Citrus - citrus greening disease ",
+        "diag_pred": "Healthy",
+        "confidence": 0.2711,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00009135",
+        "crop_true": "paddy",
+        "crop_pred": "paddy",
+        "disease_true": "Paddy - Hispa",
+        "diag_pred": "Healthy",
+        "confidence": 0.924,
+        "source": "paddy-disease-classification/train_images"
+      },
+      {
+        "image_id": "img_00040907",
+        "crop_true": "strawberry",
+        "crop_pred": "strawberry",
+        "disease_true": "Strawberry - strawberry leaf scorch",
+        "diag_pred": "Healthy",
+        "confidence": 0.403,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00053481",
+        "crop_true": "banana",
+        "crop_pred": "unknown",
+        "disease_true": "Banana - Healthy",
+        "diag_pred": "Unreadable Image",
+        "confidence": 0.0,
+        "source": "Multicrop/train"
+      }
+    ],
+    "9. Intra-crop disease confusion": [
+      {
+        "image_id": "img_00039294",
+        "crop_true": "peach",
+        "crop_pred": "peach",
+        "disease_true": "Peach - peach brown rot Bing ",
+        "diag_pred": "Scab",
+        "confidence": 0.2557,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00038814",
+        "crop_true": "grape",
+        "crop_pred": "grape",
+        "disease_true": "Grape - grape downy mildew ",
+        "diag_pred": "Black Rot",
+        "confidence": 0.734,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00038937",
+        "crop_true": "grape",
+        "crop_pred": "grape",
+        "disease_true": "Grape - grape leaf spot ",
+        "diag_pred": "Downy Mildew",
+        "confidence": 0.4714,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00001476",
+        "crop_true": "tomato",
+        "crop_pred": "tomato",
+        "disease_true": "Tomato - Mosaic Virus",
+        "diag_pred": "Leaf Mold",
+        "confidence": 0.2929,
+        "source": "PlantDoc-Dataset/train"
+      },
+      {
+        "image_id": "img_00041732",
+        "crop_true": "wheat",
+        "crop_pred": "wheat",
+        "disease_true": "Wheat - wheat bacterial leaf streak (black chaff) Bing ",
+        "diag_pred": "Stripe Rust",
+        "confidence": 0.4681,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00042933",
+        "crop_true": "wheat",
+        "crop_pred": "wheat",
+        "disease_true": "Wheat - wheat stripe rust Bing ",
+        "diag_pred": "Powdery Mildew",
+        "confidence": 0.299,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00047047",
+        "crop_true": "chilli",
+        "crop_pred": "chilli",
+        "disease_true": "Chilli - Yellowish",
+        "diag_pred": "Leaf Curl",
+        "confidence": 0.2829,
+        "source": "Multicrop/train"
+      },
+      {
+        "image_id": "img_00036044",
+        "crop_true": "bell pepper",
+        "crop_pred": "bell pepper",
+        "disease_true": "Bell pepper - bell pepper powdery mildew Bing ",
+        "diag_pred": "Bacterial Spot",
+        "confidence": 0.3358,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035535",
+        "crop_true": "banana",
+        "crop_pred": "banana",
+        "disease_true": "Banana - banana cigar end rot Bing ",
+        "diag_pred": "Bract Mosaic Virus",
+        "confidence": 0.4093,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035308",
+        "crop_true": "banana",
+        "crop_pred": "banana",
+        "disease_true": "Banana - banana black leaf streak Baidu ",
+        "diag_pred": "Yellow Sigatoka",
+        "confidence": 0.8712,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035545",
+        "crop_true": "banana",
+        "crop_pred": "banana",
+        "disease_true": "Banana - banana cigar end rot Google ",
+        "diag_pred": "Anthracnose",
+        "confidence": 0.4058,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035316",
+        "crop_true": "banana",
+        "crop_pred": "banana",
+        "disease_true": "Banana - banana black leaf streak Baidu ",
+        "diag_pred": "Yellow Sigatoka",
+        "confidence": 0.9803,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00035625",
+        "crop_true": "banana",
+        "crop_pred": "banana",
+        "disease_true": "Banana - banana panama disease ",
+        "diag_pred": "Yellow Sigatoka",
+        "confidence": 0.4581,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00009986",
+        "crop_true": "paddy",
+        "crop_pred": "paddy",
+        "disease_true": "Paddy - Brown Spot",
+        "diag_pred": "Blast",
+        "confidence": 0.4291,
+        "source": "paddy-disease-classification/train_images"
+      },
+      {
+        "image_id": "img_00013433",
+        "crop_true": "paddy",
+        "crop_pred": "paddy",
+        "disease_true": "Paddy - Bacterial Leaf Blight",
+        "diag_pred": "Blast",
+        "confidence": 0.2522,
+        "source": "paddy-disease-classification/train_images"
+      },
+      {
+        "image_id": "img_00001089",
+        "crop_true": "sugarcane",
+        "crop_pred": "sugarcane",
+        "disease_true": "Sugarcane - Yellow",
+        "diag_pred": "Red Rot",
+        "confidence": 0.531,
+        "source": "Sugarcane Leaf Disease Dataset"
+      }
+    ],
+    "3. Crop detector ambiguity / statistical refusal": [
+      {
+        "image_id": "img_00039380",
+        "crop_true": "peach",
+        "crop_pred": "unknown",
+        "disease_true": "Peach - peach leaf curl ",
+        "diag_pred": "Unreadable Image",
+        "confidence": 0.0,
+        "source": "plantseg"
+      },
+      {
+        "image_id": "img_00066851",
+        "crop_true": "groundnut",
+        "crop_pred": "unknown",
+        "disease_true": "Groundnut - Nutrition deficiency",
+        "diag_pred": "Unreadable Image",
+        "confidence": 0.0,
+        "source": "Multicrop/test"
+      }
+    ],
+    "8. Cross-crop visual confusion (Rosaceae leaf morphology)": [
+      {
+        "image_id": "img_00039259",
+        "crop_true": "peach",
+        "crop_pred": "apple",
+        "disease_true": "Peach - peach brown rot Bing ",
+        "diag_pred": "Scab",
+        "confidence": 0.3596,
+        "source": "plantseg"
+      }
+    ],
+    "8. Cross-crop visual confusion (Legume foliar overlap)": [
+      {
+        "image_id": "img_00040688",
+        "crop_true": "soybean",
+        "crop_pred": "blackgram",
+        "disease_true": "Soybean - soybean rust Bing ",
+        "diag_pred": "Anthracnose",
+        "confidence": 0.6324,
+        "source": "plantseg"
+      }
+    ]
+  },
+  "target_pair_deep_dive": {
+    "apple_peach": {
+      "apple_total": 12,
+      "apple_pred_peach": 0,
+      "peach_total": 14,
+      "peach_pred_apple": 1
+    },
+    "soybean_blackgram": {
+      "soybean_total": 12,
+      "soybean_pred_blackgram": 1,
+      "blackgram_total": 12,
+      "blackgram_pred_soybean": 0
+    },
+    "grape_tomato": {
+      "grape_total": 12,
+      "grape_pred_tomato": 0,
+      "tomato_total": 19,
+      "tomato_pred_grape": 0
+    },
+    "strawberry_scorch_healthy": {
+      "strawberry_scorch_total": 2,
+      "scorch_pred_healthy": 1,
+      "strawberry_healthy_total": 6,
+      "healthy_pred_healthy": 6
+    },
+    "wheat_ambiguity": {
+      "wheat_total": 14,
+      "wheat_crop_acc": 10,
+      "wheat_diag_pass": 8,
+      "wheat_partial": 2
+    }
+  }
+}

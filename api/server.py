@@ -58,7 +58,7 @@ def get_safe_device() -> str:
 CONFIDENCE_THRESHOLD = float(os.environ.get("CONFIDENCE_THRESHOLD", "0.70"))
 DEVICE = get_safe_device()
 WEIGHTS_DIR = os.environ.get("WEIGHTS_DIR", "weights")
-CHECKPOINT_PATH = os.path.join(WEIGHTS_DIR, "efficientnet_b5_cbam_best.pt")
+CHECKPOINT_PATH = os.environ.get("CHECKPOINT_PATH", os.path.join(WEIGHTS_DIR, "efficientnet_b5_cbam_best.pt"))
 THRESHOLDS_PATH = os.path.join(WEIGHTS_DIR, "calibration_thresholds.json")
 
 # Model File Hash & Mtime calculation

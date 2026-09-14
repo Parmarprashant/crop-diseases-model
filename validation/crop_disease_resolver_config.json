@@ -1,0 +1,157 @@
+{
+  "calibration": {
+    "dataset": "Data/outputs/outputs/val_split.csv",
+    "sample_count": 6670,
+    "temperature": 0.9085,
+    "uncalibrated_nll": 0.133,
+    "calibrated_nll": 0.1292,
+    "uncalibrated_ece": 0.018,
+    "calibrated_ece": 0.008,
+    "crop_accuracy": 97.12,
+    "status": "FROZEN"
+  },
+  "resolver": {
+    "selected_mode": "mode_b",
+    "name": "Mode B: Balanced Recovery (mass=0.08, dom=0.25)",
+    "tau_crop_conf": 0.45,
+    "tau_compat_mass": 0.08,
+    "tau_within_crop_dom": 0.25,
+    "tau_single_compat": 0.05,
+    "tau_crop_margin": 0.08,
+    "tau_crop_entropy": 0.85,
+    "tau_disease_conf": 0.35,
+    "tier1_metrics": {
+      "crop_accuracy": 86.75,
+      "full_diagnosis_accuracy": 65.75,
+      "conditional_diagnosis_accuracy": 75.79,
+      "cross_crop_errors": 26,
+      "cross_crop_rate": 6.5,
+      "ece": 0.1108
+    },
+    "all_modes_evaluated": [
+      {
+        "name": "Mode A: Advisory Baseline",
+        "mode": "mode_a",
+        "crop_accuracy": 72.0,
+        "full_diagnosis_accuracy": 59.75,
+        "conditional_diagnosis_accuracy": 82.99,
+        "cross_crop_errors": 98,
+        "cross_crop_rate": 24.5,
+        "ece": 0.0855,
+        "states": {
+          "MODE_A_ADVISORY": 337,
+          "DEFENSIVE_REJECTION": 63
+        },
+        "params": {
+          "name": "Mode A: Advisory Baseline",
+          "mode": "mode_a",
+          "tau_crop_conf": 0.45,
+          "tau_compat_mass": 0.08,
+          "tau_dom": 0.25,
+          "tau_single": 0.05
+        }
+      },
+      {
+        "name": "Mode B: Conservative (mass=0.10, dom=0.30)",
+        "mode": "mode_b",
+        "crop_accuracy": 86.75,
+        "full_diagnosis_accuracy": 65.75,
+        "conditional_diagnosis_accuracy": 75.79,
+        "cross_crop_errors": 26,
+        "cross_crop_rate": 6.5,
+        "ece": 0.1102,
+        "states": {
+          "STATE_C_AMBIGUOUS_REFUSAL": 6,
+          "STATE_B_COMPATIBLE_RECOVERED": 62,
+          "STATE_A_AGREEMENT": 246,
+          "DEFENSIVE_REJECTION": 63,
+          "STATE_C_PRESERVE_MODEL_A": 4,
+          "STATE_B_REFUSAL": 19
+        },
+        "params": {
+          "name": "Mode B: Conservative (mass=0.10, dom=0.30)",
+          "mode": "mode_b",
+          "tau_crop_conf": 0.5,
+          "tau_compat_mass": 0.1,
+          "tau_dom": 0.3,
+          "tau_single": 0.06
+        }
+      },
+      {
+        "name": "Mode B: Balanced Recovery (mass=0.08, dom=0.25)",
+        "mode": "mode_b",
+        "crop_accuracy": 86.75,
+        "full_diagnosis_accuracy": 65.75,
+        "conditional_diagnosis_accuracy": 75.79,
+        "cross_crop_errors": 26,
+        "cross_crop_rate": 6.5,
+        "ece": 0.1108,
+        "states": {
+          "STATE_B_REFUSAL": 20,
+          "STATE_B_COMPATIBLE_RECOVERED": 62,
+          "STATE_A_AGREEMENT": 246,
+          "DEFENSIVE_REJECTION": 63,
+          "STATE_C_AMBIGUOUS_REFUSAL": 5,
+          "STATE_C_PRESERVE_MODEL_A": 4
+        },
+        "params": {
+          "name": "Mode B: Balanced Recovery (mass=0.08, dom=0.25)",
+          "mode": "mode_b",
+          "tau_crop_conf": 0.45,
+          "tau_compat_mass": 0.08,
+          "tau_dom": 0.25,
+          "tau_single": 0.05
+        }
+      },
+      {
+        "name": "Mode B: Sensitive Recovery (mass=0.05, dom=0.20)",
+        "mode": "mode_b",
+        "crop_accuracy": 87.0,
+        "full_diagnosis_accuracy": 65.75,
+        "conditional_diagnosis_accuracy": 75.57,
+        "cross_crop_errors": 25,
+        "cross_crop_rate": 6.25,
+        "ece": 0.1123,
+        "states": {
+          "STATE_B_REFUSAL": 20,
+          "STATE_B_COMPATIBLE_RECOVERED": 63,
+          "STATE_A_AGREEMENT": 246,
+          "DEFENSIVE_REJECTION": 63,
+          "STATE_C_AMBIGUOUS_REFUSAL": 5,
+          "STATE_C_PRESERVE_MODEL_A": 3
+        },
+        "params": {
+          "name": "Mode B: Sensitive Recovery (mass=0.05, dom=0.20)",
+          "mode": "mode_b",
+          "tau_crop_conf": 0.4,
+          "tau_compat_mass": 0.05,
+          "tau_dom": 0.2,
+          "tau_single": 0.04
+        }
+      },
+      {
+        "name": "Mode C: Confidence-Weighted Fusion",
+        "mode": "mode_c",
+        "crop_accuracy": 86.0,
+        "full_diagnosis_accuracy": 67.25,
+        "conditional_diagnosis_accuracy": 78.2,
+        "cross_crop_errors": 29,
+        "cross_crop_rate": 7.25,
+        "ece": 0.2098,
+        "states": {
+          "MODE_C_FUSION": 337,
+          "DEFENSIVE_REJECTION": 63
+        },
+        "params": {
+          "name": "Mode C: Confidence-Weighted Fusion",
+          "mode": "mode_c",
+          "tau_crop_conf": 0.45,
+          "tau_compat_mass": 0.08,
+          "tau_dom": 0.25,
+          "tau_single": 0.05
+        }
+      }
+    ],
+    "status": "FROZEN"
+  }
+}

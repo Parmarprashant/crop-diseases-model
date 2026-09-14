@@ -276,6 +276,17 @@ class ConsensusResolver:
         # CASE 4 & 5: CNN REJECTED + GEMINI UNAVAILABLE / UNCERTAIN
         # -> INSUFFICIENT_EVIDENCE
         # ---------------------------------------------------------------------
+        # If the CNN was rejected (OOD, high entropy, low energy), the inferred crop is unreliable unless high confidence
+        is_ood_or_diffuse = any("ood" in r.lower() or "entropy" in r.lower() or "energy" in r.lower() for r in primary_rejection_reasons)
+        if is_ood_or_diffuse or raw_confidence < 0.35:
+            resolved_crop = "unknown"
+            resolved_crop_status = "UNKNOWN"
+            resolved_crop_conf = 0.0
+        else:
+            resolved_crop = crop_clean
+            resolved_crop_status = "TENTATIVE"
+            resolved_crop_conf = raw_confidence
+
         # Tailored agronomic explanation based on crop and organ
         if crop_clean == "rice" and part_clean in ["panicle", "ear", "grain", "head"]:
             custom_message = (
@@ -283,9 +294,9 @@ class ConsensusResolver:
                 "leaf diseases and the secondary vision model is unavailable. "
                 "Please provide a clearer image or obtain expert verification."
             )
-        elif crop_clean != "unknown" and part_clean != "unknown":
+        elif resolved_crop != "unknown" and part_clean != "unknown":
             custom_message = (
-                f"The image appears to show a {crop_clean} {part_clean}, but the primary disease model "
+                f"The image appears to show a {resolved_crop} {part_clean}, but the primary disease model "
                 f"does not support {part_clean} diseases ({'; '.join(primary_rejection_reasons)}) and the "
                 f"secondary vision model is unavailable. Diagnostic certainty cannot be established."
             )
@@ -305,9 +316,9 @@ class ConsensusResolver:
             confidence="low",
             status="INSUFFICIENT_EVIDENCE",
             explanation=custom_message,
-            recommendation="Capture a sharp, well-lit photograph or submit a foliage sample to an agricultural extension officer.",
+            recommendation="Capture a sharp, well-lit close-up photograph of an individual affected leaf or submit a foliage sample to an agricultural extension officer.",
             farmer_headline="Unable to determine the disease reliably",
-            farmer_subheading="Please provide a clearer image showing the affected plant part.",
+            farmer_subheading="Wide-angle or ambiguous photo detected. Please upload a clear close-up photograph of an individual affected leaf.",
             requires_expert_verification=True,
             chemical_control=[],  # STRICTLY SUPPRESSED
             organic_control=[],   # STRICTLY SUPPRESSED
@@ -316,9 +327,9 @@ class ConsensusResolver:
                 "Inspect physical plants for specific symptoms (lesions, spore masses, entry holes).",
                 "Ensure balanced plant nutrition and avoid excess nitrogen fertilization."
             ],
-            final_crop=crop_clean,
-            final_crop_confidence=raw_confidence,
-            final_crop_status="TENTATIVE",
+            final_crop=resolved_crop,
+            final_crop_confidence=resolved_crop_conf,
+            final_crop_status=resolved_crop_status,
             final_plant_part=part_clean,
             final_plant_part_confidence=0.50,
             final_plant_part_status="UNCERTAIN",

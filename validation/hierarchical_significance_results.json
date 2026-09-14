@@ -1,0 +1,91 @@
+{
+  "verdict": "KEEP MODEL A",
+  "summary": "Candidate failed one or more absolute safety, crop accuracy, or cross-crop error reduction gates.",
+  "tier2_mcnemar": {
+    "crop": {
+      "contingency_table": {
+        "both_correct": 137,
+        "model_a_only": 26,
+        "candidate_only": 6,
+        "both_incorrect": 51
+      },
+      "improvements": 6,
+      "regressions": 26,
+      "net_gain": -20,
+      "statistic": 11.2812,
+      "p_value": 0.0007829382178911048,
+      "test_type": "continuity_corrected_chi2"
+    },
+    "diagnosis": {
+      "contingency_table": {
+        "both_correct": 127,
+        "model_a_only": 17,
+        "candidate_only": 14,
+        "both_incorrect": 62
+      },
+      "improvements": 14,
+      "regressions": 17,
+      "net_gain": -3,
+      "statistic": 0.129,
+      "p_value": 0.7194375444233914,
+      "test_type": "continuity_corrected_chi2"
+    },
+    "cross_crop": {
+      "contingency_table": {
+        "both_correct": 156,
+        "model_a_only": 34,
+        "candidate_only": 5,
+        "both_incorrect": 25
+      },
+      "improvements": 5,
+      "regressions": 34,
+      "net_gain": -29,
+      "statistic": 20.1026,
+      "p_value": 7.339820766061322e-06,
+      "test_type": "continuity_corrected_chi2"
+    },
+    "holm_bonferroni": [
+      {
+        "original_p": 0.0007829382178911048,
+        "adjusted_p": 0.00157,
+        "is_significant": true
+      },
+      {
+        "original_p": 0.7194375444233914,
+        "adjusted_p": 0.71944,
+        "is_significant": false
+      },
+      {
+        "original_p": 7.339820766061322e-06,
+        "adjusted_p": 2e-05,
+        "is_significant": true
+      }
+    ]
+  },
+  "tier2_wilson_ci": {
+    "crop_model_a": [
+      67.92,
+      79.43
+    ],
+    "crop_candidate": [
+      58.49,
+      71.0
+    ],
+    "diag_model_a": [
+      58.95,
+      71.42
+    ],
+    "diag_candidate": [
+      57.56,
+      70.14
+    ],
+    "cross_crop_model_a": [
+      9.72,
+      18.8
+    ],
+    "cross_crop_candidate": [
+      21.4,
+      33.03
+    ]
+  }
+}

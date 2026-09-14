@@ -1,0 +1,22 @@
+{
+  "experiment": "Hierarchical Multi-Task Training with Teacher Distillation",
+  "timestamp": "2026-09-14 15:46:35",
+  "teacher_checkpoint": "weights/efficientnet_b5_cbam_best.pt",
+  "teacher_sha256": "b4db2209bfc416716d55339d0c21cb0c2d62ebe0eee089d6d00712dd198717b7",
+  "epochs": 4,
+  "batch_size": 32,
+  "effective_batch_size": 32,
+  "lambda_disease": 0.7,
+  "lambda_crop": 0.3,
+  "lambda_distill": 0.5,
+  "temperature": 2.0,
+  "learning_rates": {
+    "crop_head": 0.0001,
+    "disease_head": 5e-05,
+    "cbam": 2e-05,
+    "backbone": 1e-05
+  },
+  "trainable_parameters": 25215580,
+  "frozen_parameters": 5377912,
+  "selection_metric_formula": "Score_dev = Acc_disease + 0.5*Acc_crop - 2.0*Rate_cross_crop"
+}

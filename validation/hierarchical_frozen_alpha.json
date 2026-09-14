@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-09-14 16:22:38",
+  "best_alpha": 0.0,
+  "best_score_dev": 99.42567567567568,
+  "evaluation_split": "Data/outputs/outputs/val_split.csv",
+  "samples_evaluated": 1480,
+  "selection_formula": "Score_dev = Acc_disease + 0.5*Acc_crop - 2.0*Rate_cross_crop",
+  "results": [
+    {
+      "alpha": 0.0,
+      "acc_disease": 66.96,
+      "acc_crop": 90.88,
+      "rate_cross_crop": 6.49,
+      "score_dev": 99.43,
+      "total_samples": 1480
+    },
+    {
+      "alpha": 0.25,
+      "acc_disease": 66.96,
+      "acc_crop": 90.88,
+      "rate_cross_crop": 6.82,
+      "score_dev": 98.75,
+      "total_samples": 1480
+    },
+    {
+      "alpha": 0.5,
+      "acc_disease": 66.96,
+      "acc_crop": 90.88,
+      "rate_cross_crop": 6.89,
+      "score_dev": 98.61,
+      "total_samples": 1480
+    },
+    {
+      "alpha": 0.75,
+      "acc_disease": 66.89,
+      "acc_crop": 90.88,
+      "rate_cross_crop": 7.03,
+      "score_dev": 98.28,
+      "total_samples": 1480
+    },
+    {
+      "alpha": 1.0,
+      "acc_disease": 66.89,
+      "acc_crop": 90.88,
+      "rate_cross_crop": 7.03,
+      "score_dev": 98.28,
+      "total_samples": 1480
+    }
+  ]
+}

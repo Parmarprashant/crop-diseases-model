@@ -1,0 +1,59 @@
+{
+  "verdict": "MORE DATA REQUIRED",
+  "summary": "Candidate passed Tier 2 gates but failed to confirm generalization on the sealed Tier 4 cohort.",
+  "tier2_mcnemar": {
+    "crop": {
+      "contingency_table": {
+        "both_correct": 161,
+        "model_a_only": 2,
+        "candidate_only": 25,
+        "both_incorrect": 32
+      },
+      "discordant_pairs": 27,
+      "statistic": 17.9259,
+      "p_value": 2e-05,
+      "test_type": "continuity_corrected_chi2"
+    },
+    "diagnosis": {
+      "contingency_table": {
+        "both_correct": 137,
+        "model_a_only": 7,
+        "candidate_only": 0,
+        "both_incorrect": 76
+      },
+      "discordant_pairs": 7,
+      "statistic": 5.1429,
+      "p_value": 0.01562,
+      "test_type": "exact_binomial"
+    },
+    "cross_crop": {
+      "contingency_table": {
+        "both_correct": 190,
+        "model_a_only": 0,
+        "candidate_only": 27,
+        "both_incorrect": 3
+      },
+      "discordant_pairs": 27,
+      "statistic": 25.037,
+      "p_value": 0.0,
+      "test_type": "continuity_corrected_chi2"
+    },
+    "holm_bonferroni": [
+      {
+        "original_p": 2e-05,
+        "adjusted_p": 4e-05,
+        "is_significant": true
+      },
+      {
+        "original_p": 0.01562,
+        "adjusted_p": 0.01562,
+        "is_significant": true
+      },
+      {
+        "original_p": 0.0,
+        "adjusted_p": 0.0,
+        "is_significant": true
+      }
+    ]
+  }
+}

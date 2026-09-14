@@ -76,6 +76,13 @@ class AdvisoryPlan(BaseModel):
     expert_verification_note: str
 
 
+class FocusRegionInfo(BaseModel):
+    is_focused: bool = False
+    box_normalized: List[float] = Field(default_factory=lambda: [0.0, 0.0, 1.0, 1.0])
+    box_pixels: List[int] = Field(default_factory=lambda: [0, 0, 0, 0])
+    message: str = ""
+
+
 class StandardizedDiagnosisResponse(BaseModel):
     """
     Standardized, defensive diagnosis response conforming to hierarchical architecture.
@@ -99,3 +106,5 @@ class StandardizedDiagnosisResponse(BaseModel):
     pests: Dict[str, Any] = Field(default_factory=dict)
     segmentation: Dict[str, Any] = Field(default_factory=dict)
     visualizations: Dict[str, str] = Field(default_factory=dict)
+    focus_region: Optional[FocusRegionInfo] = None
+

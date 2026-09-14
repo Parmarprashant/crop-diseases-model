@@ -234,8 +234,15 @@ CLASS_TAXONOMY: Dict[str, ClassMetadata] = {
 }
 
 
-# Precomputed index mappings
-SUPPORTED_CROPS = {"cotton", "rice", "wheat", "maize", "sugarcane"}
+# Master supported crop families (all active agricultural crops in dataset)
+SUPPORTED_CROPS = {
+    "apple", "banana", "basil", "bean", "bell pepper", "blackgram", "blueberry", 
+    "broccoli", "cabbage", "carrot", "cauliflower", "celery", "cherry", "chilli", 
+    "citrus", "coffee", "corn", "cucumber", "eggplant", "garlic", "ginger", 
+    "grape", "grapevine", "groundnut", "lettuce", "paddy", "peach", 
+    "plum", "potato", "radish", "raspberry", "rice", "soybean", "squash", 
+    "strawberry", "sugarcane", "tobacco", "tomato", "wheat", "zucchini", "cotton", "maize"
+}
 SUPPORTED_PLANT_PARTS = {"leaf", "stem", "panicle", "ear", "boll", "flower", "root", "unknown"}
 
 # Crop-to-class list mapping
@@ -255,6 +262,45 @@ def get_class_metadata(class_name: Optional[str]) -> Optional[ClassMetadata]:
     for k, v in CLASS_TAXONOMY.items():
         if k.lower().replace("_", " ").strip() == norm:
             return v
+    # Dynamic fallback for all 281 classes in expanded agricultural dataset
+    KNOWN_CROPS = [
+        "apple", "banana", "basil", "bean", "bell pepper", "blackgram", "blueberry", 
+        "broccoli", "cabbage", "carrot", "cauliflower", "celery", "cherry", "chilli", 
+        "citrus", "coffee", "corn", "cucumber", "eggplant", "garlic", "ginger", 
+        "grape", "grapevine", "groundnut", "lettuce", "paddy", "peach", 
+        "plum", "potato", "radish", "raspberry", "rice", "soybean", "squash", 
+        "strawberry", "sugarcane", "tobacco", "tomato", "wheat", "zucchini", "cotton", "maize"
+    ]
+    lower_c = class_name.lower()
+    matched_crop = None
+    for crop in sorted(KNOWN_CROPS, key=len, reverse=True):
+        if lower_c.startswith(crop) or f"{crop} - " in lower_c or f"in {crop}" in lower_c or f"on {crop}" in lower_c:
+            matched_crop = crop
+            break
+
+    if matched_crop:
+        disease_part = class_name
+        if " - " in class_name:
+            disease_part = class_name.split(" - ", 1)[1].strip()
+        elif lower_c.startswith(matched_crop):
+            disease_part = class_name[len(matched_crop):].strip(" -_")
+        
+        is_healthy = "healthy" in disease_part.lower()
+        is_pest = any(p in disease_part.lower() for p in ["mite", "worm", "aphid", "pest", "beetle", "bug", "borer", "whitefly"])
+        is_bact = any(b in disease_part.lower() for b in ["bacterial", "canker", "scab", "blackrot", "wilt"])
+        is_viral = any(v in disease_part.lower() for v in ["virus", "mosaic", "curl", "streak", "crinkle"])
+        
+        cond_type = "healthy" if is_healthy else ("pest" if is_pest else ("bacterial" if is_bact else ("viral" if is_viral else "fungal")))
+        return ClassMetadata(
+            class_id=-1,
+            class_name=class_name,
+            crop=matched_crop,
+            condition_type=cond_type,
+            supported_plant_parts=["leaf", "stem", "fruit", "boll", "panicle", "flower"],
+            common_name=disease_part.title() if disease_part else class_name,
+            pathogen="",
+            training_distribution="281-class Master Agricultural Dataset"
+        )
     return None
 
 

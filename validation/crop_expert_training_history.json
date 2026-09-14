@@ -1,0 +1,42 @@
+{
+  "best_epoch": 4,
+  "best_score": 92.53,
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.787,
+      "train_acc": 87.43,
+      "val_crop_acc": 95.82,
+      "val_hard_pair_err": 3.65,
+      "val_score_dev": 88.51,
+      "lr_backbone": 2.5753048327204938e-05
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.5074,
+      "train_acc": 95.85,
+      "val_crop_acc": 96.07,
+      "val_hard_pair_err": 3.34,
+      "val_score_dev": 89.38,
+      "lr_backbone": 1.55e-05
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.4418,
+      "train_acc": 98.13,
+      "val_crop_acc": 96.76,
+      "val_hard_pair_err": 2.83,
+      "val_score_dev": 91.1,
+      "lr_backbone": 5.2469516727950615e-06
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.4116,
+      "train_acc": 99.06,
+      "val_crop_acc": 97.12,
+      "val_hard_pair_err": 2.3,
+      "val_score_dev": 92.53,
+      "lr_backbone": 1e-06
+    }
+  ]
+}

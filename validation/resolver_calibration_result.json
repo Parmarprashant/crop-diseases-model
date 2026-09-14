@@ -1,0 +1,12 @@
+{
+  "dataset": "Data/outputs/outputs/val_split.csv",
+  "sample_count": 400,
+  "temperature": 1.01,
+  "uncalibrated_ece": 0.1027,
+  "calibrated_ece": 0.1013,
+  "uncalibrated_brier": 0.1764,
+  "calibrated_brier": 0.1763,
+  "uncalibrated_nll": 0.6469,
+  "calibrated_nll": 0.6445,
+  "status": "FROZEN"
+}

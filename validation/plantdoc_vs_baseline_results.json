@@ -1,0 +1,386 @@
+{
+  "experiment_title": "AgriVision AI: Model A vs Model B PlantDoc Comparative Analysis",
+  "timestamp": "2026-09-14T14:48:00Z",
+  "models": {
+    "model_a": {
+      "name": "Production Protected Baseline (Stage 2 EfficientNet-B5 + CBAM)",
+      "checkpoint": "weights/efficientnet_b5_cbam_best.pt",
+      "sha256": "b4db2209bfc416716d55339d0c21cb0c2d62ebe0eee089d6d00712dd198717b7",
+      "size_bytes": 121252187,
+      "role": "PROTECTED_PRODUCTION"
+    },
+    "model_b": {
+      "name": "PlantDoc Conservative Fine-Tuned (4 Epochs, Frozen Blocks 0-5, Weight Anchored)",
+      "checkpoint": "weights/efficientnet_b5_cbam_plantdoc.pt",
+      "sha256": "68cb12a14e443d4a69b3bb5ada9fe65b862295064f55a52c59e059305519ff72",
+      "size_bytes": 121255647,
+      "role": "EXPERIMENTAL"
+    }
+  },
+  "primary_benchmark_220_images": {
+    "top1_crop_accuracy": {
+      "model_a": 74.09,
+      "model_a_ci95": [
+        67.92,
+        79.43
+      ],
+      "model_b": 72.27,
+      "model_b_ci95": [
+        66.01,
+        77.77
+      ],
+      "delta": -1.82
+    },
+    "full_diagnosis_accuracy": {
+      "model_a": 64.55,
+      "model_a_ci95": [
+        58.02,
+        70.57
+      ],
+      "model_b": 60.45,
+      "model_b_ci95": [
+        53.87,
+        66.68
+      ],
+      "delta": -4.1
+    },
+    "conditional_diagnosis_accuracy": {
+      "model_a": 87.12,
+      "model_a_ci95": [
+        81.11,
+        91.42
+      ],
+      "model_b": 83.65,
+      "model_b_ci95": [
+        77.12,
+        88.59
+      ],
+      "delta": -3.47
+    },
+    "cross_crop_error_rate": {
+      "model_a": 13.64,
+      "model_a_count": 30,
+      "model_b": 24.09,
+      "model_b_count": 53,
+      "delta": 10.45
+    },
+    "refusal_rate": {
+      "model_a": 12.27,
+      "model_a_count": 27,
+      "model_b": 3.64,
+      "model_b_count": 8,
+      "delta": -8.63
+    },
+    "expected_calibration_error": {
+      "model_a": 0.0819,
+      "model_b": 0.069,
+      "delta": -0.0129
+    },
+    "high_confidence_errors": {
+      "model_a": 2,
+      "model_b": 2,
+      "delta": 0
+    },
+    "latency_ms": {
+      "model_a": 422.9,
+      "model_b": 402.3,
+      "delta": -20.6
+    }
+  },
+  "plantdoc_test_benchmark_252_images": {
+    "top1_accuracy": {
+      "model_a": 48.41,
+      "model_b": 62.3,
+      "delta": 13.89
+    },
+    "top3_accuracy": {
+      "model_a": 71.03,
+      "model_b": 88.89,
+      "delta": 17.86
+    }
+  },
+  "defensive_stress_benchmark_30_images": {
+    "model_a_rejection_rate": 100.0,
+    "model_b_rejection_rate": 100.0
+  },
+  "regression_suite_34_cases": {
+    "model_a": {
+      "crop_accuracy": 93.8,
+      "full_diagnosis_pass_rate": 87.5,
+      "cross_crop_errors": 1,
+      "defensive_rejection_rate": 100.0
+    },
+    "model_b": {
+      "crop_accuracy": 78.1,
+      "full_diagnosis_pass_rate": 75.0,
+      "cross_crop_errors": 7,
+      "defensive_rejection_rate": 100.0
+    }
+  },
+  "catastrophic_forgetting_analysis": {
+    "plantdoc_overlapping_crops_macro_crop_acc": {
+      "model_a": 68.5,
+      "model_b": 75.5,
+      "delta": 7.0
+    },
+    "non_plantdoc_crops_macro_crop_acc": {
+      "model_a": 79.4,
+      "model_b": 67.6,
+      "delta": -11.8
+    },
+    "plantdoc_overlapping_crops_macro_diag_acc": {
+      "model_a": 60.7,
+      "model_b": 61.7,
+      "delta": 1.0
+    },
+    "non_plantdoc_crops_macro_diag_acc": {
+      "model_a": 67.9,
+      "model_b": 57.2,
+      "delta": -10.7
+    }
+  },
+  "per_crop_performance": {
+    "apple": {
+      "is_plantdoc_crop": true,
+      "total_samples": 12,
+      "model_a_crop_acc": 33.3,
+      "model_b_crop_acc": 66.7,
+      "crop_acc_delta": 33.4,
+      "model_a_diag_acc": 33.3,
+      "model_b_diag_acc": 33.3,
+      "diag_acc_delta": 0.0,
+      "model_a_cross_errors": 5,
+      "model_b_cross_errors": 4,
+      "cross_errors_delta": -1
+    },
+    "banana": {
+      "is_plantdoc_crop": false,
+      "total_samples": 14,
+      "model_a_crop_acc": 78.6,
+      "model_b_crop_acc": 64.3,
+      "crop_acc_delta": -14.3,
+      "model_a_diag_acc": 42.9,
+      "model_b_diag_acc": 42.9,
+      "diag_acc_delta": 0.0,
+      "model_a_cross_errors": 2,
+      "model_b_cross_errors": 4,
+      "cross_errors_delta": 2
+    },
+    "bell pepper": {
+      "is_plantdoc_crop": true,
+      "total_samples": 15,
+      "model_a_crop_acc": 80.0,
+      "model_b_crop_acc": 93.3,
+      "crop_acc_delta": 13.3,
+      "model_a_diag_acc": 60.0,
+      "model_b_diag_acc": 66.7,
+      "diag_acc_delta": 6.7,
+      "model_a_cross_errors": 2,
+      "model_b_cross_errors": 1,
+      "cross_errors_delta": -1
+    },
+    "blackgram": {
+      "is_plantdoc_crop": false,
+      "total_samples": 12,
+      "model_a_crop_acc": 100.0,
+      "model_b_crop_acc": 83.3,
+      "crop_acc_delta": -16.7,
+      "model_a_diag_acc": 100.0,
+      "model_b_diag_acc": 83.3,
+      "diag_acc_delta": -16.7,
+      "model_a_cross_errors": 0,
+      "model_b_cross_errors": 2,
+      "cross_errors_delta": 2
+    },
+    "chilli": {
+      "is_plantdoc_crop": false,
+      "total_samples": 12,
+      "model_a_crop_acc": 50.0,
+      "model_b_crop_acc": 25.0,
+      "crop_acc_delta": -25.0,
+      "model_a_diag_acc": 41.7,
+      "model_b_diag_acc": 25.0,
+      "diag_acc_delta": -16.7,
+      "model_a_cross_errors": 3,
+      "model_b_cross_errors": 8,
+      "cross_errors_delta": 5
+    },
+    "citrus": {
+      "is_plantdoc_crop": false,
+      "total_samples": 10,
+      "model_a_crop_acc": 80.0,
+      "model_b_crop_acc": 60.0,
+      "crop_acc_delta": -20.0,
+      "model_a_diag_acc": 80.0,
+      "model_b_diag_acc": 60.0,
+      "diag_acc_delta": -20.0,
+      "model_a_cross_errors": 1,
+      "model_b_cross_errors": 4,
+      "cross_errors_delta": 3
+    },
+    "corn": {
+      "is_plantdoc_crop": true,
+      "total_samples": 12,
+      "model_a_crop_acc": 91.7,
+      "model_b_crop_acc": 91.7,
+      "crop_acc_delta": 0.0,
+      "model_a_diag_acc": 91.7,
+      "model_b_diag_acc": 91.7,
+      "diag_acc_delta": 0.0,
+      "model_a_cross_errors": 1,
+      "model_b_cross_errors": 1,
+      "cross_errors_delta": 0
+    },
+    "grape": {
+      "is_plantdoc_crop": true,
+      "total_samples": 12,
+      "model_a_crop_acc": 75.0,
+      "model_b_crop_acc": 75.0,
+      "crop_acc_delta": 0.0,
+      "model_a_diag_acc": 58.3,
+      "model_b_diag_acc": 41.7,
+      "diag_acc_delta": -16.6,
+      "model_a_cross_errors": 2,
+      "model_b_cross_errors": 1,
+      "cross_errors_delta": -1
+    },
+    "groundnut": {
+      "is_plantdoc_crop": false,
+      "total_samples": 14,
+      "model_a_crop_acc": 92.9,
+      "model_b_crop_acc": 85.7,
+      "crop_acc_delta": -7.2,
+      "model_a_diag_acc": 92.9,
+      "model_b_diag_acc": 85.7,
+      "diag_acc_delta": -7.2,
+      "model_a_cross_errors": 0,
+      "model_b_cross_errors": 1,
+      "cross_errors_delta": 1
+    },
+    "paddy": {
+      "is_plantdoc_crop": false,
+      "total_samples": 15,
+      "model_a_crop_acc": 100.0,
+      "model_b_crop_acc": 100.0,
+      "crop_acc_delta": 0.0,
+      "model_a_diag_acc": 80.0,
+      "model_b_diag_acc": 66.7,
+      "diag_acc_delta": -13.3,
+      "model_a_cross_errors": 0,
+      "model_b_cross_errors": 0,
+      "cross_errors_delta": 0
+    },
+    "peach": {
+      "is_plantdoc_crop": true,
+      "total_samples": 14,
+      "model_a_crop_acc": 57.1,
+      "model_b_crop_acc": 50.0,
+      "crop_acc_delta": -7.1,
+      "model_a_diag_acc": 50.0,
+      "model_b_diag_acc": 42.9,
+      "diag_acc_delta": -7.1,
+      "model_a_cross_errors": 3,
+      "model_b_cross_errors": 5,
+      "cross_errors_delta": 2
+    },
+    "potato": {
+      "is_plantdoc_crop": true,
+      "total_samples": 17,
+      "model_a_crop_acc": 64.7,
+      "model_b_crop_acc": 76.5,
+      "crop_acc_delta": 11.8,
+      "model_a_diag_acc": 64.7,
+      "model_b_diag_acc": 76.5,
+      "diag_acc_delta": 11.8,
+      "model_a_cross_errors": 2,
+      "model_b_cross_errors": 4,
+      "cross_errors_delta": 2
+    },
+    "soybean": {
+      "is_plantdoc_crop": false,
+      "total_samples": 12,
+      "model_a_crop_acc": 66.7,
+      "model_b_crop_acc": 58.3,
+      "crop_acc_delta": -8.4,
+      "model_a_diag_acc": 66.7,
+      "model_b_diag_acc": 58.3,
+      "diag_acc_delta": -8.4,
+      "model_a_cross_errors": 2,
+      "model_b_cross_errors": 4,
+      "cross_errors_delta": 2
+    },
+    "strawberry": {
+      "is_plantdoc_crop": true,
+      "total_samples": 12,
+      "model_a_crop_acc": 83.3,
+      "model_b_crop_acc": 66.7,
+      "crop_acc_delta": -16.6,
+      "model_a_diag_acc": 75.0,
+      "model_b_diag_acc": 66.7,
+      "diag_acc_delta": -8.3,
+      "model_a_cross_errors": 1,
+      "model_b_cross_errors": 4,
+      "cross_errors_delta": 3
+    },
+    "sugarcane": {
+      "is_plantdoc_crop": false,
+      "total_samples": 4,
+      "model_a_crop_acc": 75.0,
+      "model_b_crop_acc": 75.0,
+      "crop_acc_delta": 0.0,
+      "model_a_diag_acc": 50.0,
+      "model_b_diag_acc": 50.0,
+      "diag_acc_delta": 0.0,
+      "model_a_cross_errors": 1,
+      "model_b_cross_errors": 1,
+      "cross_errors_delta": 0
+    },
+    "tomato": {
+      "is_plantdoc_crop": true,
+      "total_samples": 19,
+      "model_a_crop_acc": 63.2,
+      "model_b_crop_acc": 84.2,
+      "crop_acc_delta": 21.0,
+      "model_a_diag_acc": 52.6,
+      "model_b_diag_acc": 73.7,
+      "diag_acc_delta": 21.1,
+      "model_a_cross_errors": 2,
+      "model_b_cross_errors": 3,
+      "cross_errors_delta": 1
+    },
+    "wheat": {
+      "is_plantdoc_crop": false,
+      "total_samples": 14,
+      "model_a_crop_acc": 71.4,
+      "model_b_crop_acc": 57.1,
+      "crop_acc_delta": -14.3,
+      "model_a_diag_acc": 57.1,
+      "model_b_diag_acc": 42.9,
+      "diag_acc_delta": -14.2,
+      "model_a_cross_errors": 3,
+      "model_b_cross_errors": 6,
+      "cross_errors_delta": 3
+    }
+  },
+  "promotion_decision": {
+    "verdict": "REJECT",
+    "production_action": "RETAIN_MODEL_A",
+    "production_checkpoint": "weights/efficientnet_b5_cbam_best.pt",
+    "experimental_checkpoint": "weights/efficientnet_b5_cbam_plantdoc.pt",
+    "decision_criteria_checks": {
+      "primary_full_diagnosis_improved": false,
+      "primary_crop_accuracy_improved": false,
+      "cross_crop_errors_reduced": false,
+      "regression_suite_passed": false,
+      "defensive_security_preserved": true,
+      "plantdoc_domain_improved": true
+    },
+    "rejection_reasons": [
+      "Primary Benchmark Full Diagnosis Accuracy dropped by 4.10% (64.55% -> 60.45%).",
+      "Primary Benchmark Top-1 Crop Accuracy dropped by 1.82% (74.09% -> 72.27%).",
+      "Cross-Crop Misprediction rate surged by +10.45% (13.64% -> 24.09%, 30 -> 53 errors).",
+      "34-Case Forensic Regression suite regressed significantly: cross-crop errors increased from 1 to 7.",
+      "Catastrophic forgetting detected on non-PlantDoc agricultural crops (Rice, Wheat, Chilli, Citrus, Soybean, Banana)."
+    ]
+  }
+}

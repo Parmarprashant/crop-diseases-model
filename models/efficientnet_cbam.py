@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -55,11 +56,13 @@ class EfficientNetB5_CBAM(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         # Extract features through EfficientNet stages
         feat = self.features(x)
-        self.last_features = feat
+        if not self.training:
+            self.last_features = feat
         
         # Apply Channel & Spatial Attention
         feat_attended = self.cbam(feat)
-        self.attention_weights = feat_attended
+        if not self.training:
+            self.attention_weights = feat_attended
         
         # Global Pooling and dense classification
         pooled = self.avgpool(feat_attended)
@@ -126,11 +129,13 @@ class DiseaseClassifierInference:
         model: EfficientNetB5_CBAM,
         class_names: List[str],
         device: str = "cpu",
-        img_size: int = 256
+        img_size: int = 256,
+        use_tta: Optional[bool] = None
     ):
         self.model = model
         self.class_names = class_names
         self.img_size = img_size
+        self.use_tta = use_tta if use_tta is not None else (os.environ.get("TTA_ENABLED", "1").lower() in ("1", "true", "yes"))
         self.device = torch.device(device if torch.cuda.is_available() and device == "cuda" else "cpu")
         self.model.to(self.device)
         self.model.eval()
@@ -142,19 +147,31 @@ class DiseaseClassifierInference:
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
 
-    def predict(self, image: Image.Image, top_k: int = 3) -> Dict[str, Any]:
+    def predict(self, image: Image.Image, top_k: int = 3, use_tta: Optional[bool] = None) -> Dict[str, Any]:
         """
-        Run inference on a PIL Image.
+        Run inference on a PIL Image with optional Horizontal Flip TTA (Test-Time Augmentation).
         Returns predicted class, confidence, top-k predictions, and CBAM attention map.
         """
         if image.mode != "RGB":
             image = image.convert("RGB")
             
         tensor = self.transform(image).unsqueeze(0).to(self.device)
+        enable_tta = self.use_tta if use_tta is None else use_tta
         
         with torch.no_grad():
-            logits = self.model(tensor)
-            probs = F.softmax(logits, dim=1).squeeze(0)
+            logits_orig = self.model(tensor)
+            probs_orig = F.softmax(logits_orig, dim=1)
+
+            if enable_tta:
+                # Horizontal flip TTA: flip along width dimension (dim 3)
+                tensor_flipped = torch.flip(tensor, dims=[3])
+                logits_flipped = self.model(tensor_flipped)
+                probs_flipped = F.softmax(logits_flipped, dim=1)
+                probs_ensemble = (probs_orig + probs_flipped) / 2.0
+            else:
+                probs_ensemble = probs_orig
+
+            probs = probs_ensemble.squeeze(0)
             
             top_probs, top_indices = torch.topk(probs, k=min(top_k, len(self.class_names)))
             top_probs = top_probs.cpu().tolist()
@@ -172,10 +189,12 @@ class DiseaseClassifierInference:
                 for idx, prob in zip(top_indices, top_probs)
             ]
             
-            # Generate CBAM spatial attention heatmap
+            # Generate CBAM spatial attention heatmap from original un-flipped image
             attn_map = self.model.get_spatial_attention_map(tensor)
 
-            raw_logits = logits.squeeze(0).cpu().numpy()
+            # CRITICAL OOD SAFETY CONTRACT:
+            # Always pass original logits to OOD detector since calibration was done on original orientation
+            raw_logits = logits_orig.squeeze(0).cpu().numpy()
             all_probs = probs.cpu().numpy()
 
         return {

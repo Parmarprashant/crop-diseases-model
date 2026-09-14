@@ -1,13 +1,13 @@
 import os
+import csv
 from typing import Tuple, List, Optional
-import pandas as pd
 from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 try:
     import torch
     from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
-    from torchvision import transforms, datasets
+    from torchvision import transforms
     TORCH_AVAILABLE = True
 except ImportError:
     TORCH_AVAILABLE = False
@@ -16,14 +16,14 @@ except ImportError:
 
 class MainDataCropDataset(Dataset):
     """
-    Custom PyTorch Dataset sourcing imagery strictly from the local 'MAIN DATA' directory.
-    Supports:
-    1. Directory classification mode (MAIN DATA/Train & MAIN DATA/Validation)
-    2. CSV mode (MAIN DATA/train.csv & MAIN DATA/train_images)
+    Custom PyTorch Dataset sourcing imagery from:
+    1. CSV split mode (Data/outputs/outputs/{train,val,test}_split.csv & Data/master_images/master_images/images)
+    2. Directory classification mode (MAIN DATA/Train & MAIN DATA/Validation)
+    3. Legacy CSV mode (MAIN DATA/train.csv & MAIN DATA/train_images)
     """
     def __init__(
         self,
-        root_dir: str = "MAIN DATA",
+        root_dir: str = "Data",
         subset: str = "Train",
         transform = None,
         classes: Optional[List[str]] = None
@@ -40,9 +40,98 @@ class MainDataCropDataset(Dataset):
         self._load_dataset()
 
     def _load_dataset(self):
+        # 1. First priority: Check for split CSV files (Data/outputs/outputs/{train,val,test}_split.csv)
+        split_name = "train_split.csv"
+        sub_lower = self.subset.lower()
+        if "val" in sub_lower:
+            split_name = "val_split.csv"
+        elif "test" in sub_lower:
+            split_name = "test_split.csv"
+
+        split_candidates = [
+            os.path.join(self.root_dir, "outputs", "outputs", split_name),
+            os.path.join(self.root_dir, "outputs", split_name),
+            os.path.join(self.root_dir, split_name),
+            os.path.join(os.path.dirname(os.path.abspath(self.root_dir)), "Data", "outputs", "outputs", split_name),
+        ]
+
+        found_split = None
+        for cand in split_candidates:
+            if os.path.exists(cand):
+                found_split = cand
+                break
+
+        if found_split:
+            # Find images directory
+            split_root = os.path.dirname(os.path.dirname(os.path.dirname(found_split))) if "outputs" in found_split else self.root_dir
+            img_dir_candidates = [
+                os.path.join(self.root_dir, "master_images", "master_images", "images"),
+                os.path.join(self.root_dir, "master_images", "images"),
+                os.path.join(self.root_dir, "images"),
+                os.path.join(split_root, "master_images", "master_images", "images"),
+                os.path.join(split_root, "master_images", "images"),
+                os.path.join(split_root, "images"),
+            ]
+            img_dir = None
+            for cand in img_dir_candidates:
+                if os.path.isdir(cand):
+                    img_dir = cand
+                    break
+
+            # Find class_id_map.csv if classes not provided
+            if not self.classes:
+                map_candidates = [
+                    os.path.join(self.root_dir, "metadata", "metadata", "class_id_map.csv"),
+                    os.path.join(self.root_dir, "metadata", "class_id_map.csv"),
+                    os.path.join(self.root_dir, "class_id_map.csv"),
+                    os.path.join(split_root, "metadata", "metadata", "class_id_map.csv"),
+                ]
+                for cand in map_candidates:
+                    if os.path.exists(cand):
+                        try:
+                            class_map = {}
+                            with open(cand, "r", encoding="utf-8", errors="replace") as f:
+                                for r in csv.DictReader(f):
+                                    class_map[int(r["class_id"])] = r["canonical_class"]
+                            self.classes = [class_map[i] for i in sorted(class_map.keys())]
+                            self.class_to_idx = {c: i for i, c in enumerate(self.classes)}
+                            break
+                        except Exception as e:
+                            print(f"[Dataset] Notice: Could not parse class_id_map {cand}: {e}")
+
+            with open(found_split, "r", encoding="utf-8", errors="replace") as f:
+                reader = csv.DictReader(f)
+                rows = list(reader)
+
+            if not self.classes:
+                raw_classes = sorted(list({r.get("canonical_class", "") for r in rows if r.get("canonical_class")}))
+                self.classes = raw_classes
+                self.class_to_idx = {c: i for i, c in enumerate(self.classes)}
+
+            for r in rows:
+                cname = r.get("canonical_class", "")
+                cid = self.class_to_idx.get(cname)
+                if cid is None and "class_id" in r:
+                    try:
+                        parsed_cid = int(r["class_id"])
+                        if parsed_cid < len(self.classes):
+                            cid = parsed_cid
+                    except ValueError:
+                        pass
+                if cid is None:
+                    continue
+
+                raw_path = r.get("image_path", "")
+                fname = os.path.basename(raw_path)
+                full_path = os.path.join(img_dir, fname) if img_dir else os.path.join(self.root_dir, raw_path)
+                self.samples.append((full_path, cid))
+
+            print(f"[Dataset] Sourced {len(self.samples)} images across {len(self.classes)} classes from {os.path.basename(found_split)}")
+            return
+
+        # 2. Folder structure mode
         target_dir = os.path.join(self.root_dir, self.subset)
         if os.path.exists(target_dir):
-            # Load from folder structure
             if not self.classes:
                 dir_classes = sorted([
                     d for d in os.listdir(target_dir)
@@ -63,19 +152,21 @@ class MainDataCropDataset(Dataset):
                         for fname in os.listdir(sub_path):
                             if fname.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp')):
                                 self.samples.append((os.path.join(sub_path, fname), cls_idx))
-        else:
-            # Fallback to train.csv if directory not matched
-            csv_path = os.path.join(self.root_dir, "train.csv")
-            img_dir = os.path.join(self.root_dir, "train_images")
-            if os.path.exists(csv_path) and os.path.exists(img_dir):
-                df = pd.read_csv(csv_path)
-                if not self.classes:
-                    self.classes = sorted(df['label'].unique().tolist())
-                    self.class_to_idx = {c: i for i, c in enumerate(self.classes)}
-                for _, row in df.iterrows():
-                    fpath = os.path.join(img_dir, str(row['image_id']))
-                    if os.path.exists(fpath) and row['label'] in self.class_to_idx:
-                        self.samples.append((fpath, self.class_to_idx[row['label']]))
+            return
+
+        # 3. Fallback to train.csv if directory not matched
+        csv_path = os.path.join(self.root_dir, "train.csv")
+        img_dir = os.path.join(self.root_dir, "train_images")
+        if os.path.exists(csv_path) and os.path.exists(img_dir):
+            import pandas as pd
+            df = pd.read_csv(csv_path)
+            if not self.classes:
+                self.classes = sorted(df['label'].unique().tolist())
+                self.class_to_idx = {c: i for i, c in enumerate(self.classes)}
+            for _, row in df.iterrows():
+                fpath = os.path.join(img_dir, str(row['image_id']))
+                if os.path.exists(fpath) and row['label'] in self.class_to_idx:
+                    self.samples.append((fpath, self.class_to_idx[row['label']]))
 
     def get_class_counts(self) -> dict:
         """Return per-class sample counts (for balancing & reporting)."""
@@ -120,17 +211,23 @@ class MainDataCropDataset(Dataset):
 
 
 def get_data_loaders(
-    root_dir: str = "MAIN DATA",
-    batch_size: int = 16,
-    num_workers: int = 4,
-    img_size: int = 456,
+    root_dir: str = "Data",
+    batch_size: int = 32,
+    num_workers: int = 0,
+    img_size: int = 256,
     balance: bool = True
 ) -> Tuple[DataLoader, DataLoader, List[str]]:
     """
     Construct high-throughput DataLoaders with agritech augmentations.
     When balance=True, oversamples minority classes via WeightedRandomSampler
-    so rare diseases (e.g. 'bollrot on Cotton' with 2 images) get equal exposure.
+    so rare diseases get balanced exposure.
     """
+    if not os.path.exists(root_dir):
+        if os.path.exists("Data"):
+            root_dir = "Data"
+        elif os.path.exists("MAIN DATA"):
+            root_dir = "MAIN DATA"
+
     train_transforms = transforms.Compose([
         transforms.Resize((img_size, img_size)),
         transforms.RandomHorizontalFlip(p=0.5),
@@ -155,9 +252,9 @@ def get_data_loaders(
     shuffle = True
     if balance and TORCH_AVAILABLE:
         class_counts = train_dataset.get_class_counts()
-        count_per_class = [class_counts[c] for c in classes]
-        # Inverse-frequency weights: rare classes sampled proportionally more often
-        weights_per_sample = [1.0 / count_per_class[t] for _, t in train_dataset.samples]
+        count_per_class = [class_counts.get(c, 0) for c in classes]
+        # Inverse-frequency weights with safe floor to avoid div-by-zero
+        weights_per_sample = [1.0 / max(count_per_class[t], 1) for _, t in train_dataset.samples]
         train_sampler = WeightedRandomSampler(
             weights=torch.DoubleTensor(weights_per_sample),
             num_samples=len(train_dataset.samples),
@@ -175,7 +272,7 @@ def get_data_loaders(
         sampler=train_sampler,
         num_workers=num_workers,
         pin_memory=False,
-        persistent_workers=(num_workers > 0)
+        persistent_workers=False
     )
     val_loader = DataLoader(
         val_dataset,
@@ -183,7 +280,7 @@ def get_data_loaders(
         shuffle=False,
         num_workers=num_workers,
         pin_memory=False,
-        persistent_workers=(num_workers > 0)
+        persistent_workers=False
     )
 
     return train_loader, val_loader, classes

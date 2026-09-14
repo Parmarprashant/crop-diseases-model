@@ -51,13 +51,22 @@ class ImageQualityEvaluator:
                 warning_message=f"Image resolution too low ({w}x{h}). Minimum required: {self.min_dimension}x{self.min_dimension}."
             )
 
-        # Convert to numpy array (RGB)
-        np_img = np.array(image.convert("RGB"))
+        # Convert to numpy array (RGB) - downsample if image is huge to prevent OpenCV allocation failure
+        if max(w, h) > 1024:
+            scale = 1024.0 / max(w, h)
+            new_w, new_h = max(int(w * scale), 1), max(int(h * scale), 1)
+            eval_img = image.resize((new_w, new_h), Image.Resampling.BILINEAR)
+            np_img = np.array(eval_img.convert("RGB"))
+        else:
+            np_img = np.array(image.convert("RGB"))
 
         # 1. Sharpness via Laplacian variance
-        gray = cv2.cvtColor(np_img, cv2.COLOR_RGB2GRAY)
-        laplacian = cv2.Laplacian(gray, cv2.CV_64F)
-        sharpness = float(laplacian.var())
+        try:
+            gray = cv2.cvtColor(np_img, cv2.COLOR_RGB2GRAY)
+            laplacian = cv2.Laplacian(gray, cv2.CV_32F)
+            sharpness = float(laplacian.var())
+        except Exception:
+            sharpness = 100.0
 
         # 2. Brightness & Contrast via Lab color space
         lab = cv2.cvtColor(np_img, cv2.COLOR_RGB2LAB)

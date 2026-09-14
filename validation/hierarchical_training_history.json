@@ -1,0 +1,23 @@
+{
+  "experiment": "Hierarchical Multi-Task Training with Teacher Distillation",
+  "timestamp": "2026-09-14 16:15:00",
+  "best_epoch": 1,
+  "best_score_dev": 112.47,
+  "output_checkpoint": "weights/efficientnet_b5_cbam_hierarchical_candidate.pt",
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss_total": 1.3061,
+      "loss_disease": 0.8987,
+      "loss_crop": 1.4466,
+      "loss_distill": 0.4859,
+      "dev_disease_acc": 86.27,
+      "dev_crop_acc": 90.48,
+      "dev_cross_crop_rate": 9.52,
+      "dev_score": 112.47,
+      "duration_seconds": 992.4
+    }
+  ],
+  "checkpoint_size_bytes": 123412981,
+  "total_parameters": 30593492
+}
