@@ -66,3 +66,9 @@ cloudflared.exe
 
 
 plantDoc/
+Cotton_Leaves/
+weights/research/
+weights/ultra_v5/
+*.pt
+*.onnx
+*.npy

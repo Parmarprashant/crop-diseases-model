@@ -1,0 +1,11 @@
+{
+  "alpha": 0.05,
+  "confidence_level": 0.95,
+  "q_hat": 0.825,
+  "tau_q": 0.175,
+  "calibration_set_size": 286,
+  "calibration_method": "inductive_split_conformal",
+  "calibration_date": "2026-09-22",
+  "guarantee": "P(Y_true in C(X)) >= 0.95",
+  "status": "CALIBRATED"
+}

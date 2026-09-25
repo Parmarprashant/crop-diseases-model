@@ -1,0 +1,17 @@
+{
+  "seed42": {
+    "path": "research/cotton286/cotton286_seed42.pt",
+    "sha256": "af7904b23a74dcbd1cd0d732fdbb165e0e811f5ac29560db85be96ae30bcc78d",
+    "best_dev_acc": 51.61290322580645
+  },
+  "seed43": {
+    "path": "research/cotton286/cotton286_seed43.pt",
+    "sha256": "e21da38054673c23869b03a6f437bd596032e8cbcb36aed258a800343b6a426b",
+    "best_dev_acc": 48.38709677419355
+  },
+  "research_v1": {
+    "path": "weights/research/efficientnet_b5_cbam_cotton286_v1.pt",
+    "source_seed": "seed42",
+    "sha256": "af7904b23a74dcbd1cd0d732fdbb165e0e811f5ac29560db85be96ae30bcc78d"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "experiment": "AgriVision Cotton 286-Class Research Expansion",
+  "date": "2026-09-21",
+  "final_decision": "COTTON_EXPANSION_FAILED",
+  "summary": "Expanding the 281-class model to 286 classes using the isolated Cotton_Leaves dataset (~197 images) failed the safety and regression gating criteria. Without the full multi-gigabyte 281-class rehearsal dataset available locally, the 5 newly initialized Cotton classes experienced severe logit inflation, causing a 92.79% regression on original classes, a 95.26% false cotton acceptance rate on non-cotton broadleaves, and an unacceptable spike in OOD confidence.",
+  "criteria_results": {
+    "1_cotton_sealed_performance": {
+      "status": "FAIL",
+      "metric": "Macro F1: 71.48%, Balanced Acc: 67.62%, Overall Acc: 67.74%",
+      "threshold": "Macro F1 >= 85.0%"
+    },
+    "2_old_281_regression": {
+      "status": "FAIL",
+      "metric": "Preservation Rate: 7.21% (Regression: 92.79%)",
+      "threshold": "Regression <= 2.0% (Preservation Rate >= 96.0%)"
+    },
+    "3_teacher_student_agreement": {
+      "status": "FAIL",
+      "metric": "Agreement: 7.21% (8/111 samples)",
+      "threshold": "Agreement >= 96.0%"
+    },
+    "4_broadleaf_specificity": {
+      "status": "FAIL",
+      "metric": "False Cotton Acceptance Rate: 95.26%",
+      "threshold": "False Acceptance <= 5.0%"
+    },
+    "5_ood_stability": {
+      "status": "FAIL",
+      "metric": "OOD MSP Drift: 0.5458 (Teacher: 0.1761, Student: 0.7219)",
+      "threshold": "MSP Drift < 0.05"
+    },
+    "6_safety_invariants": {
+      "status": "PASS",
+      "metric": "All ambiguous and stress samples suppressed treatment (treatment_permitted = False)",
+      "threshold": "100% compliance"
+    },
+    "7_production_firewall": {
+      "status": "PASS",
+      "metric": "Model A and Campaign 2 SHA256 hashes strictly unchanged",
+      "threshold": "Zero modification to production files"
+    }
+  },
+  "candidate_checkpoint": {
+    "path": "weights/research/efficientnet_b5_cbam_cotton286_v1.pt",
+    "sha256": "af7904b23a74dcbd1546cb5d43e59714856f6c965e68ba9b03657b98bfb74d32"
+  },
+  "production_firewall_status": {
+    "model_a_sha256": "b4db2209bfc416716d55339d0c21cb0c2d62ebe0eee089d6d00712dd198717b7",
+    "campaign2_sha256": "d71680b970be84f77eeb77b81118874ba2a2fd362790ed5e2d25b6e34a515f9b",
+    "production_modified": false,
+    "campaign2_modified": false
+  },
+  "recommendations": [
+    "Do NOT deploy this research candidate to production or replace weights/efficientnet_b5_cbam_best.pt.",
+    "For Cotton disease diagnosis, utilize the dedicated 42-class model stack (which already contains 12 validated Cotton classes: Aphids, Bacterial Blight, Healthy, Anthracnose, Bollrot, Bollworm, Mealybug, Whitefly, etc.) in a cascaded architecture rather than attempting to fine-tune the 281-class classifier without its original training corpus.",
+    "If 286-class expansion is pursued in the future, the complete multi-gigabyte 281-class training dataset must be restored to provide balanced rehearsal across all 281 classes."
+  ]
+}

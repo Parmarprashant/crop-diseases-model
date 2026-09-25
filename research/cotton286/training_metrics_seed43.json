@@ -1,0 +1,159 @@
+{
+  "seed": 43,
+  "epochs": 10,
+  "best_dev_acc": 48.39,
+  "checkpoint": "research/cotton286/cotton286_seed43.pt",
+  "sha256": "e21da38054673c23869b03a6f437bd596032e8cbcb36aed258a800343b6a426b",
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "loss": 17.4412,
+      "cotton_train_acc": 20.0,
+      "rehearsal_acc": 0.0,
+      "dev_acc": 29.03,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 14.285714285714285,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 50.0,
+        "Cotton - Powdery Mildew": 0.0,
+        "Cotton - Target Spot": 33.33333333333333
+      },
+      "elapsed_seconds": 4.69
+    },
+    {
+      "epoch": 2,
+      "loss": 14.5566,
+      "cotton_train_acc": 28.89,
+      "rehearsal_acc": 0.0,
+      "dev_acc": 38.71,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 14.285714285714285,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 0.0,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.71
+    },
+    {
+      "epoch": 3,
+      "loss": 13.0848,
+      "cotton_train_acc": 32.59,
+      "rehearsal_acc": 0.0,
+      "dev_acc": 41.94,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 0.0,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.62
+    },
+    {
+      "epoch": 4,
+      "loss": 12.1397,
+      "cotton_train_acc": 39.26,
+      "rehearsal_acc": 0.0,
+      "dev_acc": 45.16,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 16.666666666666664,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.76
+    },
+    {
+      "epoch": 5,
+      "loss": 10.1371,
+      "cotton_train_acc": 46.67,
+      "rehearsal_acc": 0.0,
+      "dev_acc": 45.16,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 16.666666666666664,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.62
+    },
+    {
+      "epoch": 6,
+      "loss": 10.0938,
+      "cotton_train_acc": 48.15,
+      "rehearsal_acc": 0.0,
+      "dev_acc": 45.16,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 16.666666666666664,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.69
+    },
+    {
+      "epoch": 7,
+      "loss": 10.2549,
+      "cotton_train_acc": 50.37,
+      "rehearsal_acc": 0.0,
+      "dev_acc": 48.39,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 33.33333333333333,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.63
+    },
+    {
+      "epoch": 8,
+      "loss": 9.4791,
+      "cotton_train_acc": 46.67,
+      "rehearsal_acc": 2.0,
+      "dev_acc": 48.39,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 33.33333333333333,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.74
+    },
+    {
+      "epoch": 9,
+      "loss": 9.7354,
+      "cotton_train_acc": 46.67,
+      "rehearsal_acc": 4.0,
+      "dev_acc": 48.39,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 33.33333333333333,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.58
+    },
+    {
+      "epoch": 10,
+      "loss": 9.5653,
+      "cotton_train_acc": 43.7,
+      "rehearsal_acc": 6.0,
+      "dev_acc": 48.39,
+      "dev_per_class_acc": {
+        "Cotton - Aphids": 28.57142857142857,
+        "Cotton - Bacterial Blight": 50.0,
+        "Cotton - Healthy": 66.66666666666666,
+        "Cotton - Powdery Mildew": 33.33333333333333,
+        "Cotton - Target Spot": 66.66666666666666
+      },
+      "elapsed_seconds": 4.67
+    }
+  ]
+}

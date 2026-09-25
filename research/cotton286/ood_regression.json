@@ -1,0 +1,11 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "evaluated_ood_samples": 100,
+  "teacher_mean_energy": -2.7294,
+  "student_mean_energy": -7.6941,
+  "energy_drift": 4.9647,
+  "teacher_mean_msp": 0.1761,
+  "student_mean_msp": 0.7219,
+  "msp_drift": 0.5458,
+  "ood_behavior_preserved": false
+}

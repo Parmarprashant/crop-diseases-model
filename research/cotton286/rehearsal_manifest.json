@@ -1,0 +1,442 @@
+{
+  "status": "PARTIAL_LOCAL_REHEARSAL_AVAILABLE",
+  "note": "Full 281-class multi-gigabyte training split (Data/outputs/outputs/train_split.csv) is not present on this local machine. Sourced all available local non-validation training data strictly avoiding any test/val cohorts.",
+  "search_paths_inspected": {
+    "Data/outputs/outputs/train_split.csv": {
+      "exists": false,
+      "is_dir": false
+    },
+    "Data/outputs/train_split.csv": {
+      "exists": false,
+      "is_dir": false
+    },
+    "Data/train_split.csv": {
+      "exists": false,
+      "is_dir": false
+    },
+    "Data/master_images/master_images/images": {
+      "exists": false,
+      "is_dir": false
+    },
+    "MAIN DATA/Train": {
+      "exists": false,
+      "is_dir": false
+    },
+    "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger": {
+      "exists": true,
+      "is_dir": true
+    },
+    "D:/1winbackup/desktop/Ganpat University/Model/data/curated_ginger": {
+      "exists": true,
+      "is_dir": true
+    }
+  },
+  "sampling_strategy": "deterministic_all_available_non_validation",
+  "seed": 42,
+  "total_rehearsal_samples": 50,
+  "classes_covered": [
+    "Ginger - Healthy"
+  ],
+  "samples": [
+    {
+      "sample_id": "ginger_000",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_damage-pest_IMG_20211214_115924_Leaf4.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "7c47c0dd9e39c136c51d125931f4e62e",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_001",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_damage-pest_IMG_20211214_120137_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "f359f81eda4f6f84d033b83b2605f748",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_002",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_dehydrated_IMG_20211214_115617_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "e17c1effb58d9644197ce9fa08d3b81e",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_003",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_dehydrated_IMG_20211214_115617_Leaf5.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "ceaea73b490618d267ad3287b0ec5ce3",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_004",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_healthy_IMG_20211214_120043_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "6dd33f7c4187d440594fbf29a439c872",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_005",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_healthy_IMG_20211214_120043_Leaf11.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "cf358ca2add0abbcf67be805bc8e44e1",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_006",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_healthy_IMG_20211214_120043_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "1fd393e74527f4f9b66fd7eb02caf28d",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_007",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_leaf-blight_IMG_20211214_115617_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "e3bf922050bdc440cb739b3679985c15",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_008",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_leaf-blight_IMG_20211214_115624_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "58cf70002e47e596d35d9e38e37924af",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_009",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_dev_leaf-blight_IMG_20211214_115638_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "b0116c625d7bbc7b4bb32f07e098952f",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_010",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_holdout_dehydrated_IMG_20211214_115624_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "2257670bf8e02600e5f61cc378aaed7c",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_011",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_holdout_healthy_IMG_20211214_120043_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "5a203abd5ee68235e3ef4b766128b67a",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_012",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_holdout_healthy_IMG_20211214_120043_Leaf4.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "7c55316e1c2a0c32975e113eae79cf32",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_013",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_holdout_leaf-blight_IMG_20211214_115638_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "76016c42cc265c90109398d0ee51ef69",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_014",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_holdout_leaf-blight_IMG_20211214_115638_Leaf5.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "856df9d73d01159b0920897c7c1c32ac",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_015",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115339_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "419277a305882d48e4636ef25c0bcda2",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_016",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115415_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "be5970d55ae872faecf4960cf1d33047",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_017",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115415_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "564b753c229abde4ccc1b943e684301c",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_018",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115501_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "db022586f78a94447da671e01b0a7dcc",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_019",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115501_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "4baac93b285e4e9601d908763d320855",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_020",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115512_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "d95383803ba53d94b1cb791fe3e1c972",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_021",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115512_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "5ea6e716c12d070f2631a899b3cee1e6",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_022",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_damage-pest_IMG_20211214_115708_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "a071800dcdf7d80c27ba5a3634ce1ada",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_023",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_dehydrated_IMG_20211214_115339_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "d30acbc8cffde6d9211527298feea0fd",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_024",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_dehydrated_IMG_20211214_115415_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "a623932aa9b0c72508fe8a9e36f57dd7",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_025",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_dehydrated_IMG_20211214_115429_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "8f1ba74488a87a80ac67246a6d2c78ca",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_026",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_dehydrated_IMG_20211214_115501_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "4786adb31f976710fe359af6474c3e2a",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_027",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_dehydrated_IMG_20211214_115512_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "cde22df39daa89d856f873dcf03e5038",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_028",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_dehydrated_IMG_20211214_115530_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "5c5f6dcd87199dbc8449843bb261fc6e",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_029",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_dehydrated_IMG_20211214_115530_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "53e96b86e6c9aaafe8302f359f7022ef",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_030",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_115624_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "90803de82ce088e6d55a1cc37a88ec5d",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_031",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_115708_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "c622dc7a8e7247e11fdf8c6b67f89ec9",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_032",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_115708_Leaf4.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "be0c3d524bab6c87c5ce2d539ff50bed",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_033",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_115810_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "bd46d6d84039db495bc22282605872f5",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_034",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_115854_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "1aff548d9e70bee03e29ad35fed9e009",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_035",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_115854_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "0be8c8d8a1cba627160c4e4893136360",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_036",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_115924_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "18c951302f6e970d08e24f5c1bda1d12",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_037",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_120031_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "a4b355b23f9909d522feddb46e77ae2a",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_038",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_120031_Leaf5.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "740c5986a2266930b4d3ae6870e3b9a5",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_039",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_healthy_IMG_20211214_120043_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "7ed79c53f83658330c0b6d26da5331b4",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_040",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115339_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "954538afd69696b8e738356f2b1000fe",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_041",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115415_Leaf5.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "1b32fd53cb5e06b89d6fb814e19a04b7",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_042",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115429_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "8118d488c44daa9af73f10d51d3d749c",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_043",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115429_Leaf2.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "c26d2627d0015fa2149a12cc91188e33",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_044",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115512_Leaf4.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "4bea804cf86063cc5121b59cfc9e2142",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_045",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115530_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "27aea1080b5022939d7e8d4949af9189",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_046",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115530_Leaf3.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "c15838421aa0b4a51c15ab02c178260a",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_047",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115530_Leaf5.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "871b280321d3587b58bb386bb5dd3649",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_048",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115617_Leaf0.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "e236ec8beb10852d529e008aa9b9baee",
+      "provenance": "Model/Data/curated_ginger"
+    },
+    {
+      "sample_id": "ginger_049",
+      "file_path": "D:/1winbackup/desktop/Ganpat University/Model/Data/curated_ginger\\ginger_train_leaf-blight_IMG_20211214_115617_Leaf1.jpg",
+      "source_class": "Ginger - Healthy",
+      "crop": "ginger",
+      "md5": "c754f0880461e09d1d7a8613e5798d8d",
+      "provenance": "Model/Data/curated_ginger"
+    }
+  ]
+}

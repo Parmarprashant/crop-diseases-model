@@ -1,0 +1,29 @@
+{
+  "architecture": "EfficientNet-B5 + CBAM",
+  "phase": 1,
+  "backbone_frozen": true,
+  "trainable_components": [
+    "cbam",
+    "classifier"
+  ],
+  "optimizer": "AdamW",
+  "weight_decay": 0.0001,
+  "learning_rates": {
+    "classifier": 0.0001,
+    "cbam": 5e-05,
+    "backbone": 0.0
+  },
+  "loss_function": {
+    "formula": "L_total = L_new_class + lambda_rehearsal * L_old_class + lambda_distill * L_distill",
+    "lambda_rehearsal": 1.0,
+    "lambda_distill": 2.0,
+    "temperature": 2.0,
+    "label_smoothing": 0.05
+  },
+  "epochs": 10,
+  "seeds": [
+    42,
+    43
+  ],
+  "batch_size": 16
+}

@@ -1,0 +1,82 @@
+{
+  "teacher_checkpoint": "weights/efficientnet_b5_cbam_best.pt",
+  "student_checkpoint": "weights/research/efficientnet_b5_cbam_cotton286_v1.pt",
+  "total_eval_samples": 111,
+  "agreements": 8,
+  "class_switches_count": 103,
+  "old_class_preservation_rate": 7.21,
+  "mean_logit_drift": 0.3089,
+  "mean_confidence_drift": 0.4833,
+  "class_switches_sample": [
+    {
+      "file": "field_sample_000_guava.jpg",
+      "teacher_pred": "Cherry - Healthy",
+      "student_pred": "Cotton_Class_285",
+      "teacher_conf": 0.3483,
+      "student_conf": 0.6131
+    },
+    {
+      "file": "field_sample_001_eggplant.jpg",
+      "teacher_pred": "Tomato - tomato bacterial leaf spot",
+      "student_pred": "Cotton_Class_282",
+      "teacher_conf": 0.5342,
+      "student_conf": 0.8516
+    },
+    {
+      "file": "field_sample_002_papaya.jpg",
+      "teacher_pred": "Tomato - Late Blight",
+      "student_pred": "Cotton_Class_282",
+      "teacher_conf": 0.08,
+      "student_conf": 0.8322
+    },
+    {
+      "file": "field_sample_003_corn.jpg",
+      "teacher_pred": "Banana - Yb sigatoka",
+      "student_pred": "Cotton_Class_284",
+      "teacher_conf": 0.1056,
+      "student_conf": 0.4932
+    },
+    {
+      "file": "field_sample_004_pumpkin.jpg",
+      "teacher_pred": "Tomato - Healthy",
+      "student_pred": "Cotton_Class_282",
+      "teacher_conf": 0.2459,
+      "student_conf": 0.6395
+    },
+    {
+      "file": "field_sample_005_corn.jpg",
+      "teacher_pred": "Corn - Leaf Blight",
+      "student_pred": "Cotton_Class_285",
+      "teacher_conf": 0.4821,
+      "student_conf": 0.9861
+    },
+    {
+      "file": "field_sample_006_chilli.jpg",
+      "teacher_pred": "Chilli - Healthy",
+      "student_pred": "Cotton_Class_282",
+      "teacher_conf": 0.4975,
+      "student_conf": 0.976
+    },
+    {
+      "file": "field_sample_007_rose.jpg",
+      "teacher_pred": "Blueberry - Healthy",
+      "student_pred": "Cotton_Class_284",
+      "teacher_conf": 0.2001,
+      "student_conf": 0.999
+    },
+    {
+      "file": "field_sample_008_mango.jpg",
+      "teacher_pred": "Apple - apple mosaic virus",
+      "student_pred": "Cotton_Class_284",
+      "teacher_conf": 0.1783,
+      "student_conf": 0.3513
+    },
+    {
+      "file": "field_sample_009_onion.jpg",
+      "teacher_pred": "Bell Pepper - Healthy",
+      "student_pred": "Cotton_Class_282",
+      "teacher_conf": 0.0781,
+      "student_conf": 0.9478
+    }
+  ]
+}

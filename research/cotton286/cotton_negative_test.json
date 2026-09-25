@@ -1,0 +1,91 @@
+{
+  "status": "FAIL",
+  "total_negative_samples": 211,
+  "false_cotton_count": 201,
+  "false_cotton_acceptance_rate": 95.26,
+  "tolerance_threshold": 5.0,
+  "per_cohort_results": {
+    "field_test_cohort": {
+      "total_samples": 61,
+      "false_cotton_count": 55,
+      "false_cotton_rate": 90.16
+    },
+    "sunflower_holdout": {
+      "total_samples": 50,
+      "false_cotton_count": 49,
+      "false_cotton_rate": 98.0
+    },
+    "rose_leaf_holdout": {
+      "total_samples": 50,
+      "false_cotton_count": 49,
+      "false_cotton_rate": 98.0
+    },
+    "curated_ginger": {
+      "total_samples": 50,
+      "false_cotton_count": 48,
+      "false_cotton_rate": 96.0
+    }
+  },
+  "false_positives": [
+    {
+      "file": "field_sample_000_guava.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Target Spot",
+      "confidence": 0.6131
+    },
+    {
+      "file": "field_sample_001_eggplant.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Bacterial Blight",
+      "confidence": 0.8516
+    },
+    {
+      "file": "field_sample_002_papaya.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Bacterial Blight",
+      "confidence": 0.8322
+    },
+    {
+      "file": "field_sample_003_corn.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Powdery Mildew",
+      "confidence": 0.4932
+    },
+    {
+      "file": "field_sample_004_pumpkin.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Bacterial Blight",
+      "confidence": 0.6395
+    },
+    {
+      "file": "field_sample_005_corn.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Target Spot",
+      "confidence": 0.9861
+    },
+    {
+      "file": "field_sample_006_chilli.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Bacterial Blight",
+      "confidence": 0.976
+    },
+    {
+      "file": "field_sample_007_rose.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Powdery Mildew",
+      "confidence": 0.999
+    },
+    {
+      "file": "field_sample_008_mango.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Powdery Mildew",
+      "confidence": 0.3513
+    },
+    {
+      "file": "field_sample_009_onion.jpg",
+      "cohort": "field_test_cohort",
+      "predicted_cotton_class": "Cotton - Bacterial Blight",
+      "confidence": 0.9478
+    }
+  ]
+}

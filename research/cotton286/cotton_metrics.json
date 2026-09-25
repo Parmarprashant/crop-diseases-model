@@ -1,0 +1,105 @@
+{
+  "checkpoint": "weights/research/efficientnet_b5_cbam_cotton286_v1.pt",
+  "total_sealed_samples": 31,
+  "overall_accuracy": 67.74,
+  "balanced_accuracy": 67.62,
+  "macro_f1": 71.48,
+  "mean_confidence": 0.8083,
+  "statistical_limitations": {
+    "sample_size": 31,
+    "note": "Per-class sample count is ~6 images in sealed test due to dataset size (~200 images total)."
+  },
+  "per_class_metrics": {
+    "Cotton - Aphids": {
+      "total_sealed_test": 6,
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 4,
+      "precision": 66.67,
+      "recall": 33.33,
+      "f1_score": 44.44
+    },
+    "Cotton - Bacterial Blight": {
+      "total_sealed_test": 7,
+      "true_positives": 5,
+      "false_positives": 2,
+      "false_negatives": 2,
+      "precision": 71.43,
+      "recall": 71.43,
+      "f1_score": 71.43
+    },
+    "Cotton - Healthy": {
+      "total_sealed_test": 6,
+      "true_positives": 6,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1_score": 100.0
+    },
+    "Cotton - Powdery Mildew": {
+      "total_sealed_test": 6,
+      "true_positives": 4,
+      "false_positives": 3,
+      "false_negatives": 2,
+      "precision": 57.14,
+      "recall": 66.67,
+      "f1_score": 61.54
+    },
+    "Cotton - Target Spot": {
+      "total_sealed_test": 6,
+      "true_positives": 4,
+      "false_positives": 0,
+      "false_negatives": 2,
+      "precision": 100.0,
+      "recall": 66.67,
+      "f1_score": 80.0
+    }
+  },
+  "confusion_matrix": {
+    "classes": [
+      "Cotton - Aphids",
+      "Cotton - Bacterial Blight",
+      "Cotton - Healthy",
+      "Cotton - Powdery Mildew",
+      "Cotton - Target Spot"
+    ],
+    "matrix": [
+      [
+        2,
+        2,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        4,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        4
+      ]
+    ]
+  }
+}

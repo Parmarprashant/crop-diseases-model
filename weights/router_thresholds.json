@@ -1,0 +1,18 @@
+{
+  "tau_cotton_high": 0.85,
+  "tau_cotton_low": 0.48,
+  "tau_margin_min": 0.03,
+  "tau_ood_energy": -1.2,
+  "temperature": 1.0,
+  "calibration_set_size": 286,
+  "calibration_status": "CALIBRATED_ENTERPRISE_V4",
+  "calibration_date": "2026-09-22",
+  "families": {
+    "0": "Cotton (Malvaceae)",
+    "1": "Monocots / Cereals (Rice, Wheat, Maize)",
+    "2": "Legumes / Pulses (Soybean, Chickpea, Pigeonpea)",
+    "3": "Solanaceous (Tomato, Potato, Chili)",
+    "4": "Broadleaf Hard Negatives (Sunflower, Okra, Castor, Weeds)",
+    "5": "Non-Crop Background (Soil, Hands, Plastic, Debris)"
+  }
+}

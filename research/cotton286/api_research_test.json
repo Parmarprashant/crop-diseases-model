@@ -1,0 +1,140 @@
+{
+  "status": "PASS",
+  "checkpoint": "weights/research/efficientnet_b5_cbam_cotton286_v1.pt",
+  "total_test_cases": 6,
+  "all_invariants_satisfied": true,
+  "test_cases": [
+    {
+      "category": "cotton_aphids",
+      "path": "Cotton_Leaves/Test/Aphids edited/1.jpg",
+      "predicted_class": "Cotton - Aphids",
+      "confidence": 0.4988,
+      "top_predictions": [
+        {
+          "class_name": "Cotton - Aphids",
+          "confidence": 0.4988
+        },
+        {
+          "class_name": "Cotton - Bacterial Blight",
+          "confidence": 0.2395
+        },
+        {
+          "class_name": "Cotton - Healthy",
+          "confidence": 0.0707
+        }
+      ],
+      "treatment_permitted": false,
+      "safety_invariant_passed": true
+    },
+    {
+      "category": "cotton_bacterial_blight",
+      "path": "Cotton_Leaves/Test/Bacterial Blight edited/1.jpg",
+      "predicted_class": "Cotton - Bacterial Blight",
+      "confidence": 0.9896,
+      "top_predictions": [
+        {
+          "class_name": "Cotton - Bacterial Blight",
+          "confidence": 0.9896
+        },
+        {
+          "class_name": "Cotton - Target Spot",
+          "confidence": 0.0053
+        },
+        {
+          "class_name": "Cotton - Powdery Mildew",
+          "confidence": 0.0004
+        }
+      ],
+      "treatment_permitted": true,
+      "safety_invariant_passed": true
+    },
+    {
+      "category": "cotton_healthy",
+      "path": "Cotton_Leaves/Test/Healthy leaf edited/1.jpg",
+      "predicted_class": "Cotton - Healthy",
+      "confidence": 0.6759,
+      "top_predictions": [
+        {
+          "class_name": "Cotton - Healthy",
+          "confidence": 0.6759
+        },
+        {
+          "class_name": "Cotton - Aphids",
+          "confidence": 0.193
+        },
+        {
+          "class_name": "Blackgram - Healthy",
+          "confidence": 0.0697
+        }
+      ],
+      "treatment_permitted": false,
+      "safety_invariant_passed": true
+    },
+    {
+      "category": "cotton_powdery_mildew",
+      "path": "Cotton_Leaves/Test/Powdery Mildew Edited/1.jpg",
+      "predicted_class": "Cotton - Powdery Mildew",
+      "confidence": 0.3129,
+      "top_predictions": [
+        {
+          "class_name": "Cotton - Powdery Mildew",
+          "confidence": 0.3129
+        },
+        {
+          "class_name": "Squash - Powdery Mildew",
+          "confidence": 0.2232
+        },
+        {
+          "class_name": "Cucumber - cucumber powdery mildew",
+          "confidence": 0.1898
+        }
+      ],
+      "treatment_permitted": false,
+      "safety_invariant_passed": true
+    },
+    {
+      "category": "cotton_target_spot",
+      "path": "Cotton_Leaves/Test/Target spot edited/1.jpg",
+      "predicted_class": "Eggplant - eggplant cercospora leaf spot",
+      "confidence": 0.2257,
+      "top_predictions": [
+        {
+          "class_name": "Eggplant - eggplant cercospora leaf spot",
+          "confidence": 0.2257
+        },
+        {
+          "class_name": "Cotton - Target Spot",
+          "confidence": 0.2249
+        },
+        {
+          "class_name": "Maple - maple tar spot",
+          "confidence": 0.0752
+        }
+      ],
+      "treatment_permitted": false,
+      "safety_invariant_passed": true
+    },
+    {
+      "category": "ambiguous_stress_blur",
+      "path": "validation/stress_samples/defensive_blur_1.jpg",
+      "predicted_class": "Cotton - Target Spot",
+      "confidence": 0.9491,
+      "top_predictions": [
+        {
+          "class_name": "Cotton - Target Spot",
+          "confidence": 0.9491
+        },
+        {
+          "class_name": "Cotton - Aphids",
+          "confidence": 0.0313
+        },
+        {
+          "class_name": "Cotton - Healthy",
+          "confidence": 0.0088
+        }
+      ],
+      "treatment_permitted": false,
+      "safety_invariant_passed": true
+    }
+  ]
+}

@@ -166,6 +166,9 @@ class HierarchicalAgriDiagnosticPipeline:
         """
         if image.mode != "RGB":
             image = image.convert("RGB")
+        if max(image.size) > 1280:
+            image = image.copy()
+            image.thumbnail((1280, 1280), Image.Resampling.LANCZOS)
         image.load()
 
         # STEP 1: Image Quality Assessment

@@ -1,0 +1,621 @@
+{
+  "searched_roots": [
+    "D:/1winbackup/desktop/Ganpat University",
+    "D:/1winbackup/desktop/Ganpat University/crop-diseases-model",
+    "D:/1winbackup/desktop/Ganpat University/Model",
+    "D:/1winbackup/desktop/Ganpat University/kisandost"
+  ],
+  "target_files_found": [
+    {
+      "file": "pest_dataset.yaml",
+      "path": "D:/1winbackup/desktop/Ganpat University\\crop-diseases-model\\pest_dataset.yaml",
+      "size_bytes": 478
+    },
+    {
+      "file": "pest_dataset.yaml",
+      "path": "D:/1winbackup/desktop/Ganpat University\\Model\\pest_dataset.yaml",
+      "size_bytes": 478
+    },
+    {
+      "file": "pest_dataset.yaml",
+      "path": "D:/1winbackup/desktop/Ganpat University/crop-diseases-model\\pest_dataset.yaml",
+      "size_bytes": 478
+    },
+    {
+      "file": "pest_dataset.yaml",
+      "path": "D:/1winbackup/desktop/Ganpat University/Model\\pest_dataset.yaml",
+      "size_bytes": 478
+    }
+  ],
+  "archives_found": [
+    {
+      "file": "Ginger_Leaf_Dataset.zip",
+      "path": "D:/1winbackup/desktop/Ganpat University\\Model\\data\\raw\\ginger\\Ginger_Leaf_Dataset.zip",
+      "size_bytes": 229016577
+    },
+    {
+      "file": "Ginger_Leaf_Dataset.zip",
+      "path": "D:/1winbackup/desktop/Ganpat University/Model\\data\\raw\\ginger\\Ginger_Leaf_Dataset.zip",
+      "size_bytes": 229016577
+    }
+  ],
+  "image_directories": [
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\crop-diseases-model\\Cotton_Leaves\\Test\\Aphids edited",
+      "image_count": 39,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\crop-diseases-model\\Cotton_Leaves\\Test\\Bacterial Blight edited",
+      "image_count": 40,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\crop-diseases-model\\Cotton_Leaves\\Test\\Healthy leaf edited",
+      "image_count": 39,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\crop-diseases-model\\Cotton_Leaves\\Test\\Powdery Mildew Edited",
+      "image_count": 38,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\crop-diseases-model\\Cotton_Leaves\\Test\\Target spot edited",
+      "image_count": 41,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\crop-diseases-model\\validation\\stress_samples",
+      "image_count": 30,
+      "sample_files": [
+        "defensive_blur_1.jpg",
+        "defensive_blur_2.jpg",
+        "defensive_blur_3.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-hdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-mdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-xhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-xxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-hdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-mdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-xhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-xxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-xxxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-hdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-mdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-xhdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-xxhdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-xxxhdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\kisan-next\\public",
+      "image_count": 1,
+      "sample_files": [
+        "kisanDost-logo.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\kisan-next\\public\\images",
+      "image_count": 2,
+      "sample_files": [
+        "hero-farming.jpg",
+        "kisan-family.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\kisandost\\kisan-dost\\ventureHack\\kisan-next\\public\\images\\bg",
+      "image_count": 3,
+      "sample_files": [
+        "cotton-bg.png",
+        "groundnut-bg.png",
+        "maize-bg.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model",
+      "image_count": 1,
+      "sample_files": [
+        "extracted_cotton_test.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\data\\curated_ginger",
+      "image_count": 50,
+      "sample_files": [
+        "ginger_dev_damage-pest_IMG_20211214_115924_Leaf4.jpg",
+        "ginger_dev_damage-pest_IMG_20211214_120137_Leaf0.jpg",
+        "ginger_dev_dehydrated_IMG_20211214_115617_Leaf2.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\campaign2_zero_shot_ood\\rose_leaf_holdout",
+      "image_count": 50,
+      "sample_files": [
+        "rose_c2_000.jpg",
+        "rose_c2_001.jpg",
+        "rose_c2_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\campaign2_zero_shot_ood\\sunflower_holdout",
+      "image_count": 50,
+      "sample_files": [
+        "sunflower_c2_000.jpg",
+        "sunflower_c2_001.jpg",
+        "sunflower_c2_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\cotton_plant_disease",
+      "image_count": 102,
+      "sample_files": [
+        "cotton_parquet_000.jpg",
+        "cotton_parquet_001.jpg",
+        "cotton_parquet_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\field_test_cohort",
+      "image_count": 61,
+      "sample_files": [
+        "field_sample_000_guava.jpg",
+        "field_sample_001_eggplant.jpg",
+        "field_sample_002_papaya.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\open_set_cohort",
+      "image_count": 82,
+      "sample_files": [
+        "cotton_field_bg.png",
+        "cotton_sample_01.jpg",
+        "cotton_sample_02.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\open_set_v2_cohort",
+      "image_count": 607,
+      "sample_files": [
+        "v2_ood_stress_00.jpg",
+        "v2_ood_stress_01.jpg",
+        "v2_ood_stress_02.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\stress_samples",
+      "image_count": 30,
+      "sample_files": [
+        "defensive_blur_1.jpg",
+        "defensive_blur_2.jpg",
+        "defensive_blur_3.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University\\Model\\validation\\sunflower_disease",
+      "image_count": 35,
+      "sample_files": [
+        "sunflower_000.jpg",
+        "sunflower_001.jpg",
+        "sunflower_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/crop-diseases-model\\Cotton_Leaves\\Test\\Aphids edited",
+      "image_count": 39,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/crop-diseases-model\\Cotton_Leaves\\Test\\Bacterial Blight edited",
+      "image_count": 40,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/crop-diseases-model\\Cotton_Leaves\\Test\\Healthy leaf edited",
+      "image_count": 39,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/crop-diseases-model\\Cotton_Leaves\\Test\\Powdery Mildew Edited",
+      "image_count": 38,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/crop-diseases-model\\Cotton_Leaves\\Test\\Target spot edited",
+      "image_count": 41,
+      "sample_files": [
+        "1.jpg",
+        "10.jpg",
+        "11.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/crop-diseases-model\\validation\\stress_samples",
+      "image_count": 30,
+      "sample_files": [
+        "defensive_blur_1.jpg",
+        "defensive_blur_2.jpg",
+        "defensive_blur_3.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model",
+      "image_count": 1,
+      "sample_files": [
+        "extracted_cotton_test.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\data\\curated_ginger",
+      "image_count": 50,
+      "sample_files": [
+        "ginger_dev_damage-pest_IMG_20211214_115924_Leaf4.jpg",
+        "ginger_dev_damage-pest_IMG_20211214_120137_Leaf0.jpg",
+        "ginger_dev_dehydrated_IMG_20211214_115617_Leaf2.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\campaign2_zero_shot_ood\\rose_leaf_holdout",
+      "image_count": 50,
+      "sample_files": [
+        "rose_c2_000.jpg",
+        "rose_c2_001.jpg",
+        "rose_c2_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\campaign2_zero_shot_ood\\sunflower_holdout",
+      "image_count": 50,
+      "sample_files": [
+        "sunflower_c2_000.jpg",
+        "sunflower_c2_001.jpg",
+        "sunflower_c2_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\cotton_plant_disease",
+      "image_count": 102,
+      "sample_files": [
+        "cotton_parquet_000.jpg",
+        "cotton_parquet_001.jpg",
+        "cotton_parquet_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\field_test_cohort",
+      "image_count": 61,
+      "sample_files": [
+        "field_sample_000_guava.jpg",
+        "field_sample_001_eggplant.jpg",
+        "field_sample_002_papaya.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\open_set_cohort",
+      "image_count": 82,
+      "sample_files": [
+        "cotton_field_bg.png",
+        "cotton_sample_01.jpg",
+        "cotton_sample_02.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\open_set_v2_cohort",
+      "image_count": 607,
+      "sample_files": [
+        "v2_ood_stress_00.jpg",
+        "v2_ood_stress_01.jpg",
+        "v2_ood_stress_02.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\stress_samples",
+      "image_count": 30,
+      "sample_files": [
+        "defensive_blur_1.jpg",
+        "defensive_blur_2.jpg",
+        "defensive_blur_3.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/Model\\validation\\sunflower_disease",
+      "image_count": 35,
+      "sample_files": [
+        "sunflower_000.jpg",
+        "sunflower_001.jpg",
+        "sunflower_002.jpg"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-hdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-mdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-xhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-xxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-hdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-mdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-xhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-xxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\drawable-port-xxxhdpi",
+      "image_count": 1,
+      "sample_files": [
+        "splash.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-hdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-mdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-xhdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-xxhdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\android\\app\\src\\main\\res\\mipmap-xxxhdpi",
+      "image_count": 3,
+      "sample_files": [
+        "ic_launcher.png",
+        "ic_launcher_foreground.png",
+        "ic_launcher_round.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\kisan-next\\public",
+      "image_count": 1,
+      "sample_files": [
+        "kisanDost-logo.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\kisan-next\\public\\images",
+      "image_count": 2,
+      "sample_files": [
+        "hero-farming.jpg",
+        "kisan-family.png"
+      ]
+    },
+    {
+      "directory": "D:/1winbackup/desktop/Ganpat University/kisandost\\kisan-dost\\ventureHack\\kisan-next\\public\\images\\bg",
+      "image_count": 3,
+      "sample_files": [
+        "cotton-bg.png",
+        "groundnut-bg.png",
+        "maize-bg.png"
+      ]
+    }
+  ],
+  "dataset_folders": []
+}

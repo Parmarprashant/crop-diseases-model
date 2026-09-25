@@ -1,0 +1,13 @@
+{
+  "device": "cuda",
+  "vram_allocated_mb": 349.94,
+  "vram_reserved_mb": 486.0,
+  "peak_vram_mb": 466.67,
+  "vram_pass": true,
+  "latencies_ms": {
+    "crop_router": 23.23,
+    "model_a_alone": 46.19,
+    "model_b_alone": 46.59,
+    "router_expert_pipeline": 34.59
+  }
+}

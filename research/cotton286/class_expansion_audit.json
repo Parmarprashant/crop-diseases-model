@@ -1,0 +1,47 @@
+{
+  "status": "EXPANSION_INITIALIZATION_VERIFIED",
+  "original_checkpoint": {
+    "path": "weights/efficientnet_b5_cbam_best.pt",
+    "sha256": "b4db2209bfc416716d55339d0c21cb0c2d62ebe0eee089d6d00712dd198717b7",
+    "classes": 281,
+    "weight_shape": [
+      281,
+      512
+    ],
+    "bias_shape": [
+      281
+    ]
+  },
+  "expanded_checkpoint": {
+    "path": "research\\cotton286\\init_286.pt",
+    "sha256": "e38abbeb48fbe9039c82794ae87b8de4f39324cba4307890a355be768a0154c4",
+    "classes": 286,
+    "weight_shape": [
+      286,
+      512
+    ],
+    "bias_shape": [
+      286
+    ]
+  },
+  "new_class_mapping": {
+    "281": "Cotton - Aphids",
+    "282": "Cotton - Bacterial Blight",
+    "283": "Cotton - Healthy",
+    "284": "Cotton - Powdery Mildew",
+    "285": "Cotton - Target Spot"
+  },
+  "verification": {
+    "weight_rows_0_to_280_identical": true,
+    "bias_rows_0_to_280_identical": true,
+    "new_rows_281_to_285_initialized": true,
+    "initialization_method": "kaiming_normal_fan_out_relu",
+    "seed": 42
+  },
+  "row_statistics": {
+    "old_rows_weight_mean": -0.04212149232625961,
+    "old_rows_weight_std": 0.07538135349750519,
+    "new_rows_weight_mean": 0.0048705702647566795,
+    "new_rows_weight_std": 0.6253255605697632
+  }
+}
