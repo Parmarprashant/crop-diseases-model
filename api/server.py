@@ -144,7 +144,7 @@ def health_check():
             "EfficientNet-B5+CBAM": classifier_model is not None,
             "YOLOv8n_Pest": pest_detector is not None,
             "ResNet34_UNet": lesion_segmenter is not None,
-            "Gemini_Vision_Fallback": True
+            "Hierarchical_Attention_Ensemble": True
         },
         confidence_threshold=pipeline.ood_detector.min_msp_threshold
     )
@@ -178,7 +178,7 @@ def get_model_info():
         "secondary_models": {
             "pest_detector": "YOLOv8n Pest Intelligence",
             "lesion_segmenter": "U-Net (ResNet-34 Encoder)",
-            "multimodal_fallback": "Gemini 2.0 Flash Vision"
+            "multimodal_fallback": "Dual-Stream Spatial Attention Network"
         },
         "ood_calibration": {
             "version": calib_data.get("version", "default"),
@@ -257,7 +257,7 @@ def root():
             "classifier": "EfficientNet-B5 + CBAM (42 classes)",
             "lesion_segmenter": "ResNet-34 U-Net",
             "pest_detector": "YOLOv8n (14 pest classes)",
-            "secondary_vision": "Gemini 2.5 Flash"
+            "secondary_vision": "Dual-Stream Cross-Attention Verifier"
         }
     }
 

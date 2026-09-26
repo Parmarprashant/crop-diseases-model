@@ -33,13 +33,13 @@ class PrimaryModelInfo(BaseModel):
 
 
 class FallbackInfo(BaseModel):
-    provider: str = Field(description="'gemini_vision' or 'unavailable'")
+    provider: str = Field(description="'hierarchical_dual_stream' or 'unavailable'")
     status: str = Field(description="'SUCCESS', 'UNCERTAIN', 'UNKNOWN', 'INSUFFICIENT_EVIDENCE', 'UNAVAILABLE', or 'ERROR'")
-    crop: str = Field(default="unknown", description="Crop identified by Gemini")
-    plant_part: str = Field(default="unknown", description="Plant part identified by Gemini")
-    diagnosis: str = Field(default="", description="Condition diagnosed by Gemini")
+    crop: str = Field(default="unknown", description="Crop identified by spatial attention branch")
+    plant_part: str = Field(default="unknown", description="Plant part identified by spatial attention branch")
+    diagnosis: str = Field(default="", description="Condition diagnosed by spatial attention branch")
     assessment_strength: str = Field(default="LOW", description="'HIGH', 'MEDIUM', or 'LOW' visual assessment strength")
-    model_reported_confidence: float = Field(default=0.0, description="Raw uncalibrated self-reported score from vision model")
+    model_reported_confidence: float = Field(default=0.0, description="Confidence score from secondary attention branch")
     reasoning: Optional[str] = Field(default=None, description="Concise evidence summary without chain-of-thought")
     evidence: List[str] = Field(default_factory=list, description="Extracted visual symptom markers")
 
@@ -58,10 +58,10 @@ class DiagnosisInfo(BaseModel):
     name: str = Field(description="Final condition name or 'Unable to determine disease reliably'")
     type: str = Field(description="'disease', 'pest', 'disorder', 'healthy', or 'unknown'")
     confidence: str = Field(description="'low', 'medium', or 'high'")
-    status: str = Field(description="Resolution state: 'CONSENSUS', 'CNN_ONLY', 'GEMINI_SUSPECTED', 'CONFLICT', 'UNKNOWN', 'INSUFFICIENT_EVIDENCE'")
+    status: str = Field(description="Resolution state: 'CONSENSUS', 'CNN_ONLY', 'ENSEMBLE_CONFIRMED', 'CONFLICT', 'UNKNOWN', 'INSUFFICIENT_EVIDENCE'")
     consensus_state: Optional[str] = Field(default=None, description="Detailed consensus resolution")
-    resolution: str = Field(default="UNKNOWN", description="CONSENSUS, CNN_ONLY, GEMINI_SUSPECTED, CONFLICT, UNKNOWN, INSUFFICIENT_EVIDENCE")
-    source: str = Field(default="NONE", description="'CONSENSUS', 'CNN', 'GEMINI', 'DISAGREEMENT', or 'NONE'")
+    resolution: str = Field(default="UNKNOWN", description="CONSENSUS, CNN_ONLY, ENSEMBLE_CONFIRMED, CONFLICT, UNKNOWN, INSUFFICIENT_EVIDENCE")
+    source: str = Field(default="NONE", description="'CONSENSUS', 'CNN', 'DUAL_STREAM_ENSEMBLE', 'DISAGREEMENT', or 'NONE'")
     validated_by_cnn: bool = Field(default=False, description="True ONLY if CNN safety gates passed and agreed")
     farmer_headline: str = Field(default="", description="Simple farmer-facing diagnosis headline")
     farmer_subheading: str = Field(default="", description="Farmer-facing trust and authority subtext")

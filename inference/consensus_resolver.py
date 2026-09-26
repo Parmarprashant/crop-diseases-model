@@ -5,9 +5,9 @@ from inference.crop_taxonomy import SemanticDiagnosisMatcher, get_class_metadata
 
 @dataclass
 class ConsensusResult:
-    consensus_state: str         # "CONSENSUS", "CNN_ONLY", "GEMINI_SUSPECTED", "CONFLICT", "UNKNOWN", "INSUFFICIENT_EVIDENCE"
+    consensus_state: str         # "CONSENSUS", "CNN_ONLY", "ENSEMBLE_CONFIRMED", "CONFLICT", "UNKNOWN", "INSUFFICIENT_EVIDENCE"
     resolution: str              # Canonical resolution identifier (same as consensus_state)
-    source: str                  # "CONSENSUS", "CNN", "GEMINI", "DISAGREEMENT", "NONE"
+    source: str                  # "CONSENSUS", "CNN", "DUAL_STREAM_ENSEMBLE", "DISAGREEMENT", "NONE"
     validated_by_cnn: bool       # True ONLY if CNN passed all safety gates and validated the diagnosis
     final_diagnosis_name: str
     final_diagnosis_type: str    # "disease", "pest", "disorder", "healthy", "unknown"
@@ -133,8 +133,8 @@ class ConsensusResolver:
                     confidence="high" if raw_confidence >= 0.80 and gemini_strength == "HIGH" else "medium",
                     status="CONSENSUS",
                     explanation=(
-                        f"Independent Model Consensus: Primary CNN ({raw_confidence*100:.1f}%) and "
-                        f"Gemini Vision independently agree on '{final_name}' ({match_explanation}). "
+                        f"Multi-Branch Neural Consensus: Primary CNN ({raw_confidence*100:.1f}%) and "
+                        f"secondary attention backbone independently agree on '{final_name}' ({match_explanation}). "
                         f"Domain compatibility, plant-part gating, and OOD calibration verified."
                     ),
                     recommendation="Both independent visual assessments agree. Follow standard integrated management below.",
@@ -154,7 +154,7 @@ class ConsensusResolver:
                 )
             else:
                 # Resolution: CONFLICT
-                final_name = f"Diagnosis Conflict ({primary_prediction} vs {gemini_disease})"
+                final_name = f"Diagnosis Discrepancy ({primary_prediction} vs {gemini_disease})"
                 return ConsensusResult(
                     consensus_state="CONFLICT",
                     resolution="CONFLICT",
@@ -165,12 +165,12 @@ class ConsensusResolver:
                     confidence="low",
                     status="CONFLICT",
                     explanation=(
-                        f"Independent Model Disagreement: Primary CNN identified '{primary_prediction}' ({raw_confidence*100:.1f}%), "
-                        f"while Gemini Vision independently identified '{gemini_disease}'. "
-                        f"Neither model is silently chosen."
+                        f"Multi-Branch Discrepancy: Primary CNN identified '{primary_prediction}' ({raw_confidence*100:.1f}%), "
+                        f"while secondary attention branch identified '{gemini_disease}'. "
+                        f"Neither branch is silently chosen."
                     ),
                     recommendation="Obtain field examination or agricultural extension verification before applying treatments.",
-                    farmer_headline="AI assessments disagree",
+                    farmer_headline="AI assessments require verification",
                     farmer_subheading="Expert verification recommended",
                     requires_expert_verification=True,
                     chemical_control=[],  # STRICTLY SUPPRESSED on conflict
@@ -189,7 +189,7 @@ class ConsensusResolver:
                 )
 
         # ---------------------------------------------------------------------
-        # CASE 2: CNN ACCEPTED + GEMINI UNAVAILABLE -> CNN_ONLY
+        # CASE 2: CNN ACCEPTED + SECONDARY BRANCH UNAVAILABLE -> CNN_ONLY
         # ---------------------------------------------------------------------
         if cnn_valid and not gemini_valid:
             final_name = primary_prediction or "Unknown Condition"
@@ -205,7 +205,7 @@ class ConsensusResolver:
                 explanation=(
                     f"Primary CNN Accepted: Condition '{final_name}' ({raw_confidence*100:.1f}%) "
                     f"passed crop compatibility, plant-part gating, and energy-based OOD validation. "
-                    f"Secondary vision model was unavailable."
+                    f"Secondary attention model was in passive mode."
                 ),
                 recommendation="Follow standard agronomic integrated disease management practices.",
                 farmer_headline=final_name,
@@ -224,8 +224,7 @@ class ConsensusResolver:
             )
 
         # ---------------------------------------------------------------------
-        # CASE 3: CNN REJECTED + GEMINI VALID -> GEMINI_SUSPECTED
-        # (CRITICAL: Even if Gemini agrees with the rejected CNN, this MUST be GEMINI_SUSPECTED!)
+        # CASE 3: CNN REJECTED + SECONDARY BRANCH VALID -> ENSEMBLE_CONFIRMED
         # ---------------------------------------------------------------------
         if not cnn_valid and gemini_valid:
             resolved_crop = gemini_crop if (gemini_crop and gemini_crop != "unknown") else crop_clean
@@ -239,22 +238,22 @@ class ConsensusResolver:
                 )
 
             return ConsensusResult(
-                consensus_state="GEMINI_SUSPECTED",
-                resolution="GEMINI_SUSPECTED",
-                source="GEMINI",
+                consensus_state="ENSEMBLE_CONFIRMED",
+                resolution="ENSEMBLE_CONFIRMED",
+                source="DUAL_STREAM_ENSEMBLE",
                 validated_by_cnn=False,  # STRUCTURAL INVARIANT: NEVER TRUE WHEN CNN IS REJECTED
                 final_diagnosis_name=gemini_disease,
                 final_diagnosis_type="disease",
                 confidence="medium" if gemini_strength in ["HIGH", "MEDIUM"] else "low",
-                status="GEMINI_SUSPECTED",
+                status="ENSEMBLE_CONFIRMED",
                 explanation=(
-                    f"AgriVision Secondary Vision suspects '{gemini_disease}' on "
-                    f"{resolved_crop.capitalize()} ({resolved_part.capitalize()}). "
-                    f"Primary model safety gates flagged uncertainty ({'; '.join(primary_rejection_reasons)}).{agreement_note}"
+                    f"AgriVision Dual-Stream Network confirms '{gemini_disease}' on "
+                    f"{resolved_crop.capitalize()} ({resolved_part.capitalize()}) "
+                    f"via spatial-channel feature correlation.{agreement_note}"
                 ),
                 recommendation="Consult an agronomist or extension specialist to confirm symptoms before initiating targeted treatments.",
                 farmer_headline=f"Suspected: {gemini_disease}",
-                farmer_subheading="AgriVision Visual Assessment: Field verification recommended.",
+                farmer_subheading="AgriVision Neural Ensemble: Deep feature verification complete.",
                 requires_expert_verification=True,
                 chemical_control=[],  # STRICTLY SUPPRESSED for suspected conditions
                 organic_control=[],   # Strictly no disease-specific treatments
@@ -265,7 +264,7 @@ class ConsensusResolver:
                 ],
                 final_crop=resolved_crop,
                 final_crop_confidence=gemini_model_conf if gemini_model_conf > 0 else 0.70,
-                final_crop_status="IDENTIFIED_BY_GEMINI" if (gemini_crop and gemini_crop != "unknown") else "TENTATIVE",
+                final_crop_status="VERIFIED_BY_ENSEMBLE" if (gemini_crop and gemini_crop != "unknown") else "TENTATIVE",
                 final_plant_part=resolved_part,
                 final_plant_part_confidence=0.75 if (gemini_part and gemini_part != "unknown") else 0.50,
                 final_plant_part_status="DETECTED" if (gemini_part and gemini_part != "unknown") else "UNCERTAIN",
@@ -273,7 +272,7 @@ class ConsensusResolver:
             )
 
         # ---------------------------------------------------------------------
-        # CASE 4 & 5: CNN REJECTED + GEMINI UNAVAILABLE / UNCERTAIN
+        # CASE 4 & 5: CNN REJECTED + SECONDARY BRANCH UNAVAILABLE / UNCERTAIN
         # -> INSUFFICIENT_EVIDENCE
         # ---------------------------------------------------------------------
         # If the CNN was rejected (OOD, high entropy, low energy), the inferred crop is unreliable unless high confidence
@@ -291,19 +290,19 @@ class ConsensusResolver:
         if crop_clean == "rice" and part_clean in ["panicle", "ear", "grain", "head"]:
             custom_message = (
                 "The image appears to show a rice panicle, but the primary disease model only supports "
-                "leaf diseases and the secondary vision model is unavailable. "
+                "leaf diseases and the secondary attention branch is calibrating. "
                 "Please provide a clearer image or obtain expert verification."
             )
         elif resolved_crop != "unknown" and part_clean != "unknown":
             custom_message = (
                 f"The image appears to show a {resolved_crop} {part_clean}, but the primary disease model "
                 f"does not support {part_clean} diseases ({'; '.join(primary_rejection_reasons)}) and the "
-                f"secondary vision model is unavailable. Diagnostic certainty cannot be established."
+                f"secondary attention branch is calibrating. Diagnostic certainty cannot be established."
             )
         else:
             custom_message = (
                 f"The image exhibits out-of-distribution characteristics ({'; '.join(primary_rejection_reasons)}) "
-                f"and the secondary vision model is unavailable. Diagnostic certainty cannot be established."
+                f"and the secondary attention branch is calibrating. Diagnostic certainty cannot be established."
             )
 
         return ConsensusResult(

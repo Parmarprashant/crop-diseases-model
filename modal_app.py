@@ -27,9 +27,11 @@ image = (
         "numpy>=1.24.0",
         "python-dotenv>=1.0.0",
         "opencv-python-headless>=4.7.0",
-        "huggingface_hub>=0.20.0"
+        "huggingface_hub>=0.20.0",
+        "google-generativeai>=0.8.0"
     )
     # Add application code modules (only ~500 KB, uploads in 1 second)
+    .add_local_file(".env", remote_path="/root/.env")
     .add_local_dir("api", remote_path="/root/api")
     .add_local_dir("core", remote_path="/root/core")
     .add_local_dir("inference", remote_path="/root/inference")
@@ -43,6 +45,7 @@ weights_volume = modal.Volume.from_name("agrivision-weights-vol", create_if_miss
 @app.function(
     image=image,
     volumes={"/root/weights": weights_volume},
+    secrets=[modal.Secret.from_dotenv()],
     cpu=2.0,
     memory=4096,   # 4 GB RAM in cloud
     timeout=180,
@@ -52,6 +55,9 @@ def fastapi_app():
     os.chdir("/root")
     sys.path.insert(0, "/root")
     
+    from dotenv import load_dotenv
+    load_dotenv("/root/.env", override=True)
+
     weights_dir = "/root/weights"
     ckpt = os.path.join(weights_dir, "efficientnet_b5_cbam_best.pt")
     
@@ -77,6 +83,8 @@ def fastapi_app():
     os.environ["WEIGHTS_DIR"] = weights_dir
     os.environ["CHECKPOINT_PATH"] = os.path.join(weights_dir, "efficientnet_b5_cbam_best.pt")
     os.environ["CONFIDENCE_THRESHOLD"] = "0.70"
+    os.environ["ENABLE_GEMINI_FALLBACK"] = "1"
+    os.environ["GEMINI_MODEL"] = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
     from api.server import app as web_app
     return web_app
